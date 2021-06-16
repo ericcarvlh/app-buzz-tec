@@ -1,0 +1,59 @@
+package com.example.buzztec.dto;
+
+import java.util.Date;
+
+public class DtoAgenda
+{
+    private int id;
+    private Date data;
+    private String nm_cliente, local_agenda, nm_consultor, desc_agenda;
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNm_cliente() {
+        return nm_cliente;
+    }
+
+    public void setNm_cliente(String nm_cliente) {
+        this.nm_cliente = nm_cliente;
+    }
+
+    public String getLocal_agenda() {
+        return local_agenda;
+    }
+
+    public void setLocal_agenda(String local_agenda) {
+        this.local_agenda = local_agenda;
+    }
+
+    public String getNm_consultor() {
+        return nm_consultor;
+    }
+
+    public void setNm_consultor(String nm_consultor) {
+        this.nm_consultor = nm_consultor;
+    }
+
+    public String getDesc_agenda() {
+        return desc_agenda;
+    }
+
+    public void setDesc_agenda(String desc_agenda) {
+        this.desc_agenda = desc_agenda;
+    }
+}

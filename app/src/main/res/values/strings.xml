@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Buzz Tec</string>
+
+    <!--inicio utilizadas em telas de cadastro-->
+    <string name="nome">Nome</string>
+    <string name="telefone">Telefone</string>
+    <string name="email">E-mail</string>
+    <string name="cadastro">Cadastrar</string>
+    <string name="codigo">Código</string>
+    <!-- fim telas de cadastro-->
+
+    <!--inicio utilizados na tela de login-->
+    <string name="entrar_login">Entrar</string>
+    <string name="usuario_login">Usuário</string>
+    <string name="senha_login">Senha</string>
+    <!--fim utilizados na tela de login-->
+
+    <!--inicio utilizados na tela de atividade-->
+    <string name="cliente_atividade">Cliente</string>
+    <string name="consultor_atividade">Consultor</string>
+    <string name="inicio_atividade">Data inicio</string>
+    <string name="termino_atividade">Data termino</string>
+    <string name="atividade_atividade">Atividade</string>
+    <!--fim utilizados na tela de atividade-->
+
+    <!--inicio utilizados na tela de servico-->
+    <string name="tipo_servico">Tipo</string>
+    <string name="nome_servico">Nome servico</string>
+    <string name="desc_servico">Descrição</string>
+    <!--fim utilizados na tela de servico-->
+
+    <!--inicio utilizados na tela de agenda-->
+    <string name="data_agenda">Data</string>
+    <string name="local_agenda">Local</string>
+    <!--fim utilizados na tela de agenda-->
+
+    <string-array name="spinner_cargo">
+        <item>Cargoo1</item>
+        <item>Cargoo2</item>
+        <item>Cargoo3</item>
+        <item>Cargoo4</item>
+    </string-array>
+
+</resources>
