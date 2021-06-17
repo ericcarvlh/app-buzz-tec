@@ -13,7 +13,7 @@
         android:layout_marginTop="100dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/tipo_servico"
+        android:hint="@string/tipo_servico"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +26,7 @@
         android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/nome_servico"
+        android:hint="@string/nome_servico"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
         android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/desc_servico"
+        android:hint="@string/desc_servico"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,4 +55,5 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextDesc_servico" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

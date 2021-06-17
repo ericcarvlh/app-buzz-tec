@@ -17,6 +17,23 @@ public class DaoAtividade extends SQLiteOpenHelper
         super(context, "db_buzztec", null, 1);
     }
 
+    @Override
+    public void onCreate(SQLiteDatabase db_buzztec)
+    {
+//        String strquery = "Create Table " +TABELA_ATIVIDADE+ "(" +
+//                "Id INTEGER primary key," +
+//                "Data_inicio DATE not null," +
+//                "Data_termino DATE not null," +
+//                "Nm_consultor VARCHAR(60) not null," +
+//                "Nm_cliente VARCHAR(60) not null," +
+//                "Desc_atividade VARCHAR(255) not null)";
+//        db_buzztec.execSQL(strquery);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db_buzztec, int oldVersion, int newVersion) {
+
+    }
     public long CadastrarAtividade(DtoAtividade dtoAtividade)
     {
         ContentValues dados = Colunas(dtoAtividade);
@@ -35,21 +52,4 @@ public class DaoAtividade extends SQLiteOpenHelper
         return dados;
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase db_buzztec)
-    {
-        String strquery = "Create Table " +TABELA_ATIVIDADE+ "(" +
-                "Id MEDIUMINT primary key autoincrement," +
-                "Data_inicio DATE not null," +
-                "Data_termino DATE not null," +
-                "Nm_consultor VARCHAR(60) not null," +
-                "Nm_cliente VARCHAR(60) not null," +
-                "Desc_atividade VARCHAR(255) not null)";
-        db_buzztec.execSQL(strquery);
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-    }
 }

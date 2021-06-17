@@ -21,11 +21,12 @@ public class DaoServico extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db_buzztec)
     {
-        String strquery = "Create Table " +TABELA_SERVICO+ "(" +
-                "Id MEDIUMINT primary key autoincrement," +
-                "Nm_servico VARCHAR(60) not null," +
-                "Desc_servico VARCHAR(255) not null)";
-        db_buzztec.execSQL(strquery);
+//        String strquery = "Create Table " +TABELA_SERVICO+ "(" +
+//                "Id INTEGER primary key," +
+//                "Tp_servico VARCHAR(60) not null," +
+//                "Nm_servico VARCHAR(60) not null," +
+//                "Desc_servico VARCHAR(255) not null)";
+//        db_buzztec.execSQL(strquery);
     }
 
     @Override
@@ -43,9 +44,9 @@ public class DaoServico extends SQLiteOpenHelper
     private ContentValues Colunas(DtoServico dtoServico)
     {
         ContentValues dados = new ContentValues();
-        dados.put("Tipo", dtoServico.getTp_servico());
-        dados.put("Servico", dtoServico.getNm_servico());
-        dados.put("DescServico", dtoServico.getDesc_servico());
+        dados.put("Tp_servico", dtoServico.getTp_servico());
+        dados.put("Nm_servico", dtoServico.getNm_servico());
+        dados.put("Desc_servico", dtoServico.getDesc_servico());
         return dados;
     }
 }

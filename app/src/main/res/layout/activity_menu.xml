@@ -4,77 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuActivity">
+    tools:context=".MenuActivity"
+    android:backgroundTint="#9C9C9C">
 
     <ImageButton
-        android:id="@+id/buttonConsultor"
+        android:id="@+id/buttonConsultor_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+        android:background="@drawable/ic_launcher_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/buttonCliente"
+        android:id="@+id/buttonCliente_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:background="@drawable/cliente_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonConsultor" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonConsultor_menu" />
 
     <ImageButton
-        android:id="@+id/buttonAtividade"
+        android:id="@+id/buttonAtividade_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCliente" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonCliente_menu" />
 
     <ImageButton
-        android:id="@+id/buttonConsulta"
+        android:id="@+id/buttonConsulta_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:background="@drawable/consultar_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAtividade" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonAtividade_menu" />
 
     <ImageButton
-        android:id="@+id/buttonAgenda"
+        android:id="@+id/buttonAgenda_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonConsulta" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonConsulta_menu" />
 
     <ImageButton
-        android:id="@+id/buttonServicos"
+        android:id="@+id/buttonServico_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:background="@drawable/servico_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAgenda" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonAgenda_menu" />
 
     <ImageButton
-        android:id="@+id/buttonSobre"
+        android:id="@+id/buttonSobre_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonServicos" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonServico_menu" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

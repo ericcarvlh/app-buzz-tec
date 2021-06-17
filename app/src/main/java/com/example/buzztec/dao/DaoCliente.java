@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import com.example.buzztec.dto.DtoCliente;
-import com.example.buzztec.dto.DtoConsultor;
 
 public class DaoCliente extends SQLiteOpenHelper
 {
@@ -19,21 +18,22 @@ public class DaoCliente extends SQLiteOpenHelper
         super(context, "db_buzztec", null, 1);
     }
 
+
     @Override
     public void onCreate(SQLiteDatabase db_buzztec)
     {
-        String strquery = "Create Table " +TABELA_CLIENTE+ "(" +
-                "Id MEDIUMINT primary key autoincrement," +
-                "Cd_cliente MEDIUMINT not null," +
-                "Nm_cliente VARCHAR(60) not null," +
-                "Tell_cliente VARCHAR(10) not null," +
-                "Email_cliente VARCHAR(60) not null)";
-        db_buzztec.execSQL(strquery);
+//        String strquery = "Create Table " +TABELA_CLIENTE+ "(" +
+//                "Id INTEGER primary key," +
+//                "Cd_cliente MEDIUMINT not null," +
+//                "Nm_cliente VARCHAR(60) not null," +
+//                "Tell_cliente VARCHAR(10) not null," +
+//                "Email_cliente VARCHAR(60) not null)";
+//        db_buzztec.execSQL(strquery);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+    public void onUpgrade(SQLiteDatabase db_buzztec, int oldVersion, int newVersion)
+    {
     }
 
     public long CadastrarCliente(DtoCliente dtoCliente)
@@ -46,10 +46,10 @@ public class DaoCliente extends SQLiteOpenHelper
     private ContentValues Colunas(DtoCliente dtoCliente)
     {
         ContentValues dados = new ContentValues();
-        dados.put("Codigo",  dtoCliente.getCd_cliente());
-        dados.put("Nome", dtoCliente.getNome());
-        dados.put("Telefone",  dtoCliente.getTelefone());
-        dados.put("Email",  dtoCliente.getEmail());
+        dados.put("Cd_cliente", dtoCliente.getCd_cliente());
+        dados.put("Nm_cliente", dtoCliente.getNome());
+        dados.put("Tell_cliente", dtoCliente.getTelefone());
+        dados.put("Email_cliente", dtoCliente.getEmail());
         return dados;
     }
 }

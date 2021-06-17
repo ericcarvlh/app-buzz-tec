@@ -22,17 +22,12 @@ public class DaoConsultor extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db_buzztec)
     {
-        String strquery = "Create table " +TABELA_CONSULTOR+ "(" +
-                "Id MEDIUMINT primary key autoincrement," +
-                "Nm_consultor VARCHAR(60) not null," +
-                "Tell_consultor VARCHAR(10) not null," +
-                "Email_consultor VARCHAR(60) not null, " +
-                "Cargo_consultor VARCHAR(30) not null)";
-        db_buzztec.execSQL(strquery);
-//        strquery = "CREATE TABLE " +TABELA_LOGIN+ "(" +
-//                "Id MEDIUMINT primary key autoincrement," +
-//                "Usuario_login varchar(20) not null," +
-//                "Senha_login varchar(20) not null)";
+//        String strquery = "Create table " +TABELA_CONSULTOR+ "(" +
+//                "Id INTEGER primary key," +
+//                "Nm_consultor VARCHAR(60) not null," +
+//                "Tell_consultor VARCHAR(10) not null," +
+//                "Email_consultor VARCHAR(60) not null, " +
+//                "Cargo_consultor VARCHAR(30) not null)";
 //        db_buzztec.execSQL(strquery);
     }
 
@@ -52,10 +47,10 @@ public class DaoConsultor extends SQLiteOpenHelper
     private ContentValues Colunas(DtoConsultor dtoConsultor)
     {
         ContentValues dados = new ContentValues();
-        dados.put("Nome", dtoConsultor.getNome());
-        dados.put("Telefone", dtoConsultor.getTelefone());
-        dados.put("Email", dtoConsultor.getEmail());
-        dados.put("Cargo", dtoConsultor.getCargo());
+        dados.put("Nm_consultor", dtoConsultor.getNome());
+        dados.put("Tell_consultor", dtoConsultor.getTelefone());
+        dados.put("Email_consultor", dtoConsultor.getEmail());
+        dados.put("Cargo_consultor", dtoConsultor.getCargo());
         return dados;
     }
 }

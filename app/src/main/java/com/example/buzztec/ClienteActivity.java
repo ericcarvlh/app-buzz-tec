@@ -2,6 +2,7 @@ package com.example.buzztec;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,7 +37,7 @@ public class ClienteActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                dtoCliente.setCd_cliente(editTextCodigo.getInputType());
+                dtoCliente.setCd_cliente(Integer.parseInt(editTextCodigo.getText().toString()));
                 dtoCliente.setNome(editTextNome.getText().toString());
                 dtoCliente.setTelefone(editTextTelefone.getText().toString());
                 dtoCliente.setEmail(editTextEmail.getText().toString());
@@ -47,15 +48,15 @@ public class ClienteActivity extends AppCompatActivity
                     if(addCliente > 0)
                     {
                         Toast.makeText(ClienteActivity.this, "Sucesso", Toast.LENGTH_SHORT).show();
-                        //Intent voltar = new Intent(AdicionarActivity.this, MainActivity.class);
-                        //startActivity(voltar);
+                        Intent voltar = new Intent(ClienteActivity.this, MenuActivity.class);
+                        startActivity(voltar);
                     }
                     else
                         Toast.makeText(ClienteActivity.this, "Erro ao cadastrar", Toast.LENGTH_SHORT).show();
                 }
                 catch (Exception ex)
                 {
-                    Toast.makeText(ClienteActivity.this, "Erro ao cadastrar" + ex.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ClienteActivity.this, "Erro fatal" + ex.toString(), Toast.LENGTH_SHORT).show();
                 }
             }
         });

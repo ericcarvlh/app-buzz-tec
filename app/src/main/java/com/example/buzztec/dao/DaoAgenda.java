@@ -20,14 +20,14 @@ public class DaoAgenda extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db_buzztec)
     {
-        String strquery = "CREATE TABLE " +TABELA_AGENDA+ "(" +
-                "Id MEDIUMINT primary key autoincrement," +
-                "Data_agenda DATE not null," +
-                "Nm_cliente VARCHAR(60) not null," +
-                "Local_agenda VARCHAR(100) not null," +
-                "Nm_consultor VARCHAR(60) not null," +
-                "Desc_agenda VARCHAR(255) not null)";
-        db_buzztec.execSQL(strquery);
+//        String strquery = "CREATE TABLE " +TABELA_AGENDA+ "(" +
+//                "Id INTEGER primary key," +
+//                "Data_agenda DATE not null," +
+//                "Nm_cliente VARCHAR(60) not null," +
+//                "Local_agenda VARCHAR(100) not null," +
+//                "Nm_consultor VARCHAR(60) not null," +
+//                "Desc_agenda VARCHAR(255) not null)";
+//        db_buzztec.execSQL(strquery);
     }
 
     @Override
@@ -46,11 +46,11 @@ public class DaoAgenda extends SQLiteOpenHelper
     private ContentValues Colunas(DtoAgenda dtoAgenda)
     {
         ContentValues dados = new ContentValues();
-        dados.put("Cliente", dtoAgenda.getNm_cliente());
-        dados.put("Consultor", dtoAgenda.getNm_consultor());
-        dados.put("Local", dtoAgenda.getLocal_agenda());
-        dados.put("Data", String.valueOf(dtoAgenda.getData()));
-        dados.put("DescAgenda", dtoAgenda.getDesc_agenda());
+        dados.put("Nm_cliente", dtoAgenda.getNm_cliente());
+        dados.put("Nm_consultor", dtoAgenda.getNm_consultor());
+        dados.put("Local_agenda", dtoAgenda.getLocal_agenda());
+        dados.put("Data_agenda", String.valueOf(dtoAgenda.getData()));
+        dados.put("Desc_agenda", dtoAgenda.getDesc_agenda());
         return dados;
     }
 }
