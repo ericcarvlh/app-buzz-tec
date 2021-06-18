@@ -12,7 +12,6 @@ import com.example.buzztec.dto.DtoConsultor;
 public class DaoConsultor extends SQLiteOpenHelper
 {
     public final String TABELA_CONSULTOR = "TB_CONSULTOR";
-    // public final String TABELA_LOGIN     = "TB_LOGIN";
 
     public DaoConsultor(@Nullable Context context)
     {
@@ -22,13 +21,6 @@ public class DaoConsultor extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db_buzztec)
     {
-//        String strquery = "Create table " +TABELA_CONSULTOR+ "(" +
-//                "Id INTEGER primary key," +
-//                "Nm_consultor VARCHAR(60) not null," +
-//                "Tell_consultor VARCHAR(10) not null," +
-//                "Email_consultor VARCHAR(60) not null, " +
-//                "Cargo_consultor VARCHAR(30) not null)";
-//        db_buzztec.execSQL(strquery);
     }
 
     @Override

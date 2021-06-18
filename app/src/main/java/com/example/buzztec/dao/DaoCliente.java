@@ -22,13 +22,6 @@ public class DaoCliente extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db_buzztec)
     {
-//        String strquery = "Create Table " +TABELA_CLIENTE+ "(" +
-//                "Id INTEGER primary key," +
-//                "Cd_cliente MEDIUMINT not null," +
-//                "Nm_cliente VARCHAR(60) not null," +
-//                "Tell_cliente VARCHAR(10) not null," +
-//                "Email_cliente VARCHAR(60) not null)";
-//        db_buzztec.execSQL(strquery);
     }
 
     @Override

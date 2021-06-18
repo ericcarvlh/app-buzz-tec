@@ -20,14 +20,6 @@ public class DaoAgenda extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db_buzztec)
     {
-//        String strquery = "CREATE TABLE " +TABELA_AGENDA+ "(" +
-//                "Id INTEGER primary key," +
-//                "Data_agenda DATE not null," +
-//                "Nm_cliente VARCHAR(60) not null," +
-//                "Local_agenda VARCHAR(100) not null," +
-//                "Nm_consultor VARCHAR(60) not null," +
-//                "Desc_agenda VARCHAR(255) not null)";
-//        db_buzztec.execSQL(strquery);
     }
 
     @Override

@@ -8,10 +8,10 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="400px"
+        android:layout_height="400px"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/logo_buz"
+        android:background="@drawable/logo_buzz"
         app:layout_constraintBottom_toTopOf="@+id/textinputlayout_ignore"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,14 +50,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:startIconDrawable="@drawable/usuario_icone">
+        app:startIconDrawable="@drawable/usuario_icon">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextUsuario_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:maxLength="10" />
+            android:maxLength="11" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -84,7 +84,8 @@
             android:id="@+id/editTextSenha_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:maxLength="11"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

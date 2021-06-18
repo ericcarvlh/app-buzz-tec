@@ -20,14 +20,6 @@ public class DaoAtividade extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db_buzztec)
     {
-//        String strquery = "Create Table " +TABELA_ATIVIDADE+ "(" +
-//                "Id INTEGER primary key," +
-//                "Data_inicio DATE not null," +
-//                "Data_termino DATE not null," +
-//                "Nm_consultor VARCHAR(60) not null," +
-//                "Nm_cliente VARCHAR(60) not null," +
-//                "Desc_atividade VARCHAR(255) not null)";
-//        db_buzztec.execSQL(strquery);
     }
 
     @Override

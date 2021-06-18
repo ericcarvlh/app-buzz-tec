@@ -21,12 +21,6 @@ public class DaoServico extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db_buzztec)
     {
-//        String strquery = "Create Table " +TABELA_SERVICO+ "(" +
-//                "Id INTEGER primary key," +
-//                "Tp_servico VARCHAR(60) not null," +
-//                "Nm_servico VARCHAR(60) not null," +
-//                "Desc_servico VARCHAR(255) not null)";
-//        db_buzztec.execSQL(strquery);
     }
 
     @Override

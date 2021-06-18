@@ -18,7 +18,8 @@ public class ServicoActivity extends AppCompatActivity
     Button buttonCadastrar;
     EditText editTextTipo, editTextNomeS, editTextDesc;
     DtoServico dtoServico = new DtoServico();
-    DaoServico daoServico = new DaoServico(this);
+    //DaoServico daoServico = new DaoServico(this);
+    DaoBanco daoBanco = new DaoBanco(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -43,7 +44,7 @@ public class ServicoActivity extends AppCompatActivity
 
                 try
                 {
-                    long addServico = daoServico.CadastrarServico(dtoServico);
+                    long addServico = daoBanco.CadastrarServico(dtoServico);
                     if(addServico > 0)
                     {
                         Toast.makeText(ServicoActivity.this, "Sucesso", Toast.LENGTH_SHORT).show();
