@@ -5,15 +5,14 @@ import java.util.Date;
 public class DtoAgenda
 {
     private int id;
-    private Date data;
-    private String nm_cliente, local_agenda, nm_consultor, desc_agenda;
+    private String nm_cliente, local_agenda, nm_consultor, desc_agenda, data_agenda;
 
-    public Date getData() {
-        return data;
+    public String getData_agenda() {
+        return data_agenda;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setData_agenda(String data_agenda) {
+        this.data_agenda = data_agenda;
     }
 
     public int getId()

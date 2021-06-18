@@ -9,6 +9,9 @@ import androidx.annotation.Nullable;
 
 import com.example.buzztec.dto.DtoAgenda;
 
+import java.sql.Date;
+import java.text.DateFormat;
+
 public class DaoAgenda extends SQLiteOpenHelper
 {
     public final String TABELA_AGENDA    = "TB_AGENDA";
@@ -41,7 +44,7 @@ public class DaoAgenda extends SQLiteOpenHelper
         dados.put("Nm_cliente", dtoAgenda.getNm_cliente());
         dados.put("Nm_consultor", dtoAgenda.getNm_consultor());
         dados.put("Local_agenda", dtoAgenda.getLocal_agenda());
-        dados.put("Data_agenda", String.valueOf(dtoAgenda.getData()));
+        dados.put("Data_agenda", dtoAgenda.getData_agenda());
         dados.put("Desc_agenda", dtoAgenda.getDesc_agenda());
         return dados;
     }

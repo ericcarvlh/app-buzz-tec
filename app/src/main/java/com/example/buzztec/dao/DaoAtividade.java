@@ -36,11 +36,11 @@ public class DaoAtividade extends SQLiteOpenHelper
     private ContentValues Colunas(DtoAtividade dtoAtividade)
     {
         ContentValues dados = new ContentValues();
-        dados.put("DataIni", String.valueOf(dtoAtividade.getDataInicio()));
-        dados.put("DataTer", String.valueOf(dtoAtividade.getDataTermino()));
-        dados.put("Consultor",  dtoAtividade.getNm_consultor());
-        dados.put("Cliente",  dtoAtividade.getNm_consultor());
-        dados.put("DescAtividade",  dtoAtividade.getDesc_atividade());
+        dados.put("Data_inicio", dtoAtividade.getDataInicio());
+        dados.put("Data_termino", dtoAtividade.getDataTermino());
+        dados.put("Nm_consultor",  dtoAtividade.getNm_consultor());
+        dados.put("Nm_cliente",  dtoAtividade.getNm_consultor());
+        dados.put("Desc_atividade",  dtoAtividade.getDesc_atividade());
         return dados;
     }
 

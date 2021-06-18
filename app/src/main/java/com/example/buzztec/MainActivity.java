@@ -10,9 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.buzztec.dao.DaoBanco;
-import com.example.buzztec.dto.DtoLogin;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -38,7 +35,7 @@ public class MainActivity extends AppCompatActivity
             {
                 String usuario = editTextUsuario.getText().toString();
                 String senha = editTextSenha.getText().toString();
-                Long ConsultaUsu = daoBanco.ConsultarUsuario(usuario, senha);
+                Long ConsultaUsu = daoBanco.ConsultarLogin(usuario, senha);
                 if(ConsultaUsu > 0 )
                 {
                         Intent prox = new Intent(MainActivity.this, MenuActivity.class);
@@ -46,7 +43,7 @@ public class MainActivity extends AppCompatActivity
                         startActivity(prox);
                 }
                 else
-                    Toast.makeText(MainActivity.this, "usuario inválido", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "usuario ou senha invalidos", Toast.LENGTH_SHORT).show();
             }
         });
     }

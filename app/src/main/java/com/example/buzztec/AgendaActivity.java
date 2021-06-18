@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.buzztec.dao.DaoAgenda;
 import com.example.buzztec.dto.DtoAgenda;
 
+import java.sql.Date;
 import java.text.ParseException;
 
 
@@ -43,17 +44,11 @@ public class AgendaActivity extends AppCompatActivity
 
         buttonCadastrar.setOnClickListener(new View.OnClickListener()
         {
-            @RequiresApi(api = Build.VERSION_CODES.N)
-            @Override
             public void onClick(View v)
             {
+                dtoAgenda.setData_agenda(editTextData.getText().toString());
                 dtoAgenda.setNm_cliente(editTextCliente.getText().toString());
                 dtoAgenda.setNm_consultor(editTextConsultor.getText().toString());
-                try {
-                    dtoAgenda.setData(DateFormat.getTimeInstance().parse(editTextData.getText().toString()));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
                 dtoAgenda.setLocal_agenda(editTextLocal.getText().toString());
                 dtoAgenda.setDesc_agenda(editTextDesc.getText().toString());
 
@@ -67,7 +62,7 @@ public class AgendaActivity extends AppCompatActivity
                         startActivity(voltar);
                     }
                     else
-                        Toast.makeText(AgendaActivity.this, "Erro ao casastrar", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AgendaActivity.this, "Erro ao casastrar.", Toast.LENGTH_SHORT).show();
                 }
                 catch (Exception ex)
                 {

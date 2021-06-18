@@ -5,8 +5,23 @@ import java.util.Date;
 public class DtoAtividade
 {
     private int id;
-    private Date dataInicio, dataTermino;
-    private String nm_consultor, nm_cliente, desc_atividade;
+    private String nm_consultor, nm_cliente, desc_atividade, dataInicio, dataTermino;
+
+    public String getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(String dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public String getDataTermino() {
+        return dataTermino;
+    }
+
+    public void setDataTermino(String dataTermino) {
+        this.dataTermino = dataTermino;
+    }
 
     public int getId() {
         return id;
@@ -14,22 +29,6 @@ public class DtoAtividade
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Date getDataInicio() {
-        return dataInicio;
-    }
-
-    public void setDataInicio(Date dataInicio) {
-        this.dataInicio = dataInicio;
-    }
-
-    public Date getDataTermino() {
-        return dataTermino;
-    }
-
-    public void setDataTermino(Date dataTermino) {
-        this.dataTermino = dataTermino;
     }
 
     public String getNm_consultor() {

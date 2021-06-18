@@ -32,12 +32,8 @@ public class DaoBanco extends SQLiteOpenHelper
     {
         String strquery = "CREATE TABLE " +TABELA_LOGIN+ "(" +
                 "Id INTEGER primary key," +
-                "Usuario_login varchar(20) not null," +
-                "Senha_login varchar(20) not null)";
-        db_buzztec.execSQL(strquery);
-        strquery = "INSERT INTO " +TABELA_LOGIN+ " Values" +
-                "(1, 'eriquin', '1234567')," +
-                "(2, 'leozin', '12345678')";
+                "Usuario_login varchar(20) not null UNIQUE," +
+                "Senha_login varchar(20) not null UNIQUE)";
         db_buzztec.execSQL(strquery);
         strquery = "CREATE TABLE " +TABELA_AGENDA+ "(" +
                 "Id INTEGER primary key," +
@@ -75,49 +71,26 @@ public class DaoBanco extends SQLiteOpenHelper
                 "Nm_servico VARCHAR(60) not null," +
                 "Desc_servico VARCHAR(255) not null)";
         db_buzztec.execSQL(strquery);
+        strquery = "INSERT INTO "+TABELA_LOGIN+" VALUES" +
+                "(1, 'eriquin', '1234567')," +
+                "(2, 'leozin', '12345678')";
+        db_buzztec.execSQL(strquery);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db_buzztec, int oldVersion, int newVersion)
     {
+
     }
 
-    public long ConsultarUsuario(String usuario, String senha)
+    public long ConsultarLogin(String usuario, String senha)
     {
-        String comando = "SELECT Usuario_login from " +TABELA_LOGIN+ " WHERE Usuario_login = ?";
-        String[] args = {""+usuario+""};
+        String comando = "select * from "+TABELA_LOGIN+" where usuario_Login = ? and senha_login = ?";
+        String[] args = {""+usuario+"", ""+senha+""};
         Cursor analise = getReadableDatabase().rawQuery(comando, args);
         if(analise.getCount() > 0)
-
-            comando = "SELECT  Senha_login FROM " +TABELA_LOGIN+ " WHERE Senha_login = '"+senha+"'";
-//          String[] args2 = {""+senha+""};
-            analise = getReadableDatabase().rawQuery(comando, null);
-            if(analise.getCount() > 0)
-            return 1;
-
+        {return 1;}
         else
-        return 0;
-    }
-//    public long ConsultarSenha(String senha)
-//    {
-//
-//        else
-//        {return 0;}
-//    }
-
-    public long CadastrarServico(DtoServico dtoServico)
-    {
-        ContentValues dados = Colunas(dtoServico);
-
-        return getWritableDatabase().insert(TABELA_SERVICO, null, dados);
-    }
-
-    private ContentValues Colunas(DtoServico dtoServico)
-    {
-        ContentValues dados = new ContentValues();
-        dados.put("Tp_servico", dtoServico.getTp_servico());
-        dados.put("Nm_servico", dtoServico.getNm_servico());
-        dados.put("Desc_servico", dtoServico.getDesc_servico());
-        return dados;
+        {return 0;}
     }
 }
