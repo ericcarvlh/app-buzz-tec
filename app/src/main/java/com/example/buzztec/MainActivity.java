@@ -35,15 +35,22 @@ public class MainActivity extends AppCompatActivity
             {
                 String usuario = editTextUsuario.getText().toString();
                 String senha = editTextSenha.getText().toString();
-                Long ConsultaUsu = daoBanco.ConsultarLogin(usuario, senha);
-                if(ConsultaUsu > 0 )
+                try
                 {
-                        Intent prox = new Intent(MainActivity.this, MenuActivity.class);
-                        Toast.makeText(MainActivity.this, "sucesso", Toast.LENGTH_SHORT).show();
-                        startActivity(prox);
+                    Long ConsultaUsu = daoBanco.ConsultarLogin(usuario, senha);
+                    if(ConsultaUsu > 0 )
+                    {
+                            Intent prox = new Intent(MainActivity.this, MenuActivity.class);
+                            Toast.makeText(MainActivity.this, "sucesso", Toast.LENGTH_SHORT).show();
+                            startActivity(prox);
+                    }
+                    else
+                        Toast.makeText(MainActivity.this, "usuario ou senha invalidos", Toast.LENGTH_SHORT).show();
                 }
-                else
-                    Toast.makeText(MainActivity.this, "usuario ou senha invalidos", Toast.LENGTH_SHORT).show();
+                catch (Exception ex)
+                {
+                    Toast.makeText(MainActivity.this, "Erro fatal" +ex.toString(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
