@@ -2,12 +2,16 @@ package com.example.buzztec.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.buzztec.dto.DtoCliente;
 import com.example.buzztec.dto.DtoConsultor;
+
+import java.util.ArrayList;
 
 public class DaoConsultor extends SQLiteOpenHelper
 {
@@ -35,6 +39,47 @@ public class DaoConsultor extends SQLiteOpenHelper
         return getWritableDatabase().insert(TABELA_CONSULTOR, null, dados);
     }
 
+    public ArrayList<DtoConsultor> ConsultarTodos()
+    {
+        String comando = "SELECT * FROM " + TABELA_CONSULTOR;
+        Cursor analise = getReadableDatabase().rawQuery(comando, null);
+        ArrayList<DtoConsultor> arraylist = new ArrayList<>();
+        LeituraDeDados(analise, arraylist);
+
+        return arraylist;
+    }
+
+    public int Excluir(DtoConsultor dto)
+    {
+        String id = "id = ?";
+        String[] Dellonde = {dto.getId()+""};
+        return getReadableDatabase().delete(TABELA_CONSULTOR, id, Dellonde);
+    }
+
+    public long Alterar(DtoConsultor dto)
+    {
+        ContentValues dados = Colunas(dto);
+        String id = "id = ?";
+        String[] args = {dto.getId()+""};
+
+        return getWritableDatabase().update(TABELA_CONSULTOR, dados, id, args);
+    }
+
+    private void LeituraDeDados(Cursor analise, ArrayList arraylist)
+    {
+        while (analise.moveToNext())
+        {
+            DtoConsultor dto = new DtoConsultor();
+
+            dto.setId(analise.getInt(0));
+            dto.setNome(analise.getString(1));
+            dto.setTelefone(analise.getString(2));
+            dto.setEmail(analise.getString(3));
+            dto.setCargo(analise.getString(4));
+
+            arraylist.add(dto);
+        }
+    }
 
     private ContentValues Colunas(DtoConsultor dtoConsultor)
     {

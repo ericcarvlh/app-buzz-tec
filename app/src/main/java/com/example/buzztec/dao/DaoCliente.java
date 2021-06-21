@@ -2,12 +2,16 @@ package com.example.buzztec.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.buzztec.dto.DtoAtividade;
 import com.example.buzztec.dto.DtoCliente;
+
+import java.util.ArrayList;
 
 public class DaoCliente extends SQLiteOpenHelper
 {
@@ -29,11 +33,53 @@ public class DaoCliente extends SQLiteOpenHelper
     {
     }
 
-    public long CadastrarCliente(DtoCliente dtoCliente)
+    public long CadastrarCliente(DtoCliente dto)
     {
-        ContentValues dados = Colunas(dtoCliente);
+        ContentValues dados = Colunas(dto);
 
         return getWritableDatabase().insert(TABELA_CLIENTE, null, dados);
+    }
+
+    public ArrayList<DtoCliente> ConsultarTodos()
+    {
+        String comando = "SELECT * FROM " + TABELA_CLIENTE;
+        Cursor analise = getReadableDatabase().rawQuery(comando, null);
+        ArrayList<DtoCliente> arraylist = new ArrayList<>();
+        LeituraDeDados(analise, arraylist);
+
+        return arraylist;
+    }
+
+    public int Excluir(DtoCliente dto)
+    {
+        String id = "id = ?";
+        String[] Dellonde = {dto.getId()+""};
+        return getReadableDatabase().delete(TABELA_CLIENTE, id, Dellonde);
+    }
+
+    public long Alterar(DtoCliente dto)
+    {
+        ContentValues dados = Colunas(dto);
+        String id = "id = ?";
+        String[] args = {dto.getId()+""};
+
+        return getWritableDatabase().update(TABELA_CLIENTE, dados, id, args);
+    }
+
+    private void LeituraDeDados(Cursor analise, ArrayList arraylist)
+    {
+        while (analise.moveToNext())
+        {
+            DtoCliente dto = new DtoCliente();
+
+            dto.setId(analise.getInt(0));
+            dto.setCd_cliente(analise.getInt(1));
+            dto.setNome(analise.getString(2));
+            dto.setTelefone(analise.getString(3));
+            dto.setEmail(analise.getString(4));
+
+            arraylist.add(dto);
+        }
     }
 
     private ContentValues Colunas(DtoCliente dtoCliente)

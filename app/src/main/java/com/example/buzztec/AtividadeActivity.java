@@ -26,6 +26,8 @@ public class AtividadeActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_atividade);
 
+        this.setTitle("Atividade");
+
         buttonCadastrar   = findViewById(R.id.buttonCadastrarAtividade_atividade);
 
         editTextDataIni   = findViewById(R.id.editTextDataInicio_atividade);

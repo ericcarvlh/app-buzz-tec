@@ -29,6 +29,8 @@ public class ConsultorActivity extends AppCompatActivity implements AdapterView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultor);
 
+        this.setTitle("Consultor");
+
         buttonCadastrar  = findViewById(R.id.buttonCadastrarConsultor_Consultor);
 
         spinnerCargo     = findViewById(R.id.spinnerCargo_Consultor);

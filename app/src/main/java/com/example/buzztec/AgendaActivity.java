@@ -34,6 +34,8 @@ public class AgendaActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agenda);
 
+        this.setTitle("Agenda");
+
         buttonCadastrar   = findViewById(R.id.buttonCadastrarAgenda_agenda);
 
         editTextCliente   = findViewById(R.id.editTextNmCliente_agenda);

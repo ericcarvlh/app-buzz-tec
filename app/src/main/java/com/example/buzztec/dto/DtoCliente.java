@@ -2,8 +2,16 @@ package com.example.buzztec.dto;
 
 public class DtoCliente
 {
-    private int id, cd_cliente;
-    private String nome, telefone, email;
+    private int id, Cd_cliente;
+    private String Nome, Telefone, Email;
+
+    public String toString()
+    {
+        //Locale ptBr = new Locale("pt","BR");
+        //Date format = new SimpleDateFormat("dd/MM/yyyy").parse(dataInicio);
+
+        return Nome +" - "+ Cd_cliente +" - "+ Telefone;
+    }
 
     public int getId() {
         return id;
@@ -14,34 +22,34 @@ public class DtoCliente
     }
 
     public int getCd_cliente() {
-        return cd_cliente;
+        return Cd_cliente;
     }
 
     public void setCd_cliente(int cd_cliente) {
-        this.cd_cliente = cd_cliente;
+        Cd_cliente = cd_cliente;
     }
 
     public String getNome() {
-        return nome;
+        return Nome;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        Nome = nome;
     }
 
     public String getTelefone() {
-        return telefone;
+        return Telefone;
     }
 
     public void setTelefone(String telefone) {
-        this.telefone = telefone;
+        Telefone = telefone;
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        Email = email;
     }
 }

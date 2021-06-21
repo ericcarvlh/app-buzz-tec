@@ -26,6 +26,8 @@ public class ServicoActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_servico);
 
+        this.setTitle("Servico");
+
         buttonCadastrar = findViewById(R.id.buttonCadastrarAtividade_servico);
 
         editTextDesc    = findViewById(R.id.editTextDesc_servico);

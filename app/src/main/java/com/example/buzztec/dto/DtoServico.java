@@ -5,6 +5,14 @@ public class DtoServico
     private int id;
     private String nm_servico, tp_servico, desc_servico;
 
+    public String toString()
+    {
+        //Locale ptBr = new Locale("pt","BR");
+        //Date format = new SimpleDateFormat("dd/MM/yyyy").parse(dataInicio);
+
+        return nm_servico+" - "+ tp_servico;
+    }
+
     public String getDesc_servico() {
         return desc_servico;
     }

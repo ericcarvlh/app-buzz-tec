@@ -25,6 +25,8 @@ public class ClienteActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cliente);
 
+        this.setTitle("Cliente");
+
         buttonCadastrar  = findViewById(R.id.buttonCadastrarConsultor_cliente);
 
         editTextEmail    = findViewById(R.id.editTextEmail_cliente);

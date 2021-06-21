@@ -2,12 +2,16 @@ package com.example.buzztec.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.buzztec.dto.DtoCliente;
 import com.example.buzztec.dto.DtoServico;
+
+import java.util.ArrayList;
 
 public class DaoServico extends SQLiteOpenHelper
 {
@@ -28,11 +32,52 @@ public class DaoServico extends SQLiteOpenHelper
 
     }
 
-    public long CadastrarServico(DtoServico dtoServico)
+    public long CadastrarServico(DtoServico dto)
     {
-        ContentValues dados = Colunas(dtoServico);
+        ContentValues dados = Colunas(dto);
 
         return getWritableDatabase().insert(TABELA_SERVICO, null, dados);
+    }
+
+    public ArrayList<DtoServico> ConsultarTodos()
+    {
+        String comando = "SELECT * FROM " + TABELA_SERVICO;
+        Cursor analise = getReadableDatabase().rawQuery(comando, null);
+        ArrayList<DtoServico> arraylist = new ArrayList<>();
+        LeituraDeDados(analise, arraylist);
+
+        return arraylist;
+    }
+
+    public int Excluir(DtoServico dto)
+    {
+        String id = "id = ?";
+        String[] Dellonde = {dto.getId()+""};
+        return getReadableDatabase().delete(TABELA_SERVICO, id, Dellonde);
+    }
+
+    public long Alterar(DtoServico dto)
+    {
+        ContentValues dados = Colunas(dto);
+        String id = "id = ?";
+        String[] args = {dto.getId()+""};
+
+        return getWritableDatabase().update(TABELA_SERVICO, dados, id, args);
+    }
+
+    private void LeituraDeDados(Cursor analise, ArrayList arraylist)
+    {
+        while (analise.moveToNext())
+        {
+            DtoServico dto = new DtoServico();
+
+            dto.setId(analise.getInt(0));
+            dto.setTp_servico(analise.getString(1));
+            dto.setNm_servico(analise.getString(2));
+            dto.setDesc_servico(analise.getString(3));
+
+            arraylist.add(dto);
+        }
     }
 
     private ContentValues Colunas(DtoServico dtoServico)

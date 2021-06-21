@@ -18,6 +18,8 @@ public class MenuActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        this.setTitle("Menu");
+
         buttonCliente = findViewById(R.id.buttonCliente_menu);
         buttonServico = findViewById(R.id.buttonServico_menu);
         buttonConsulta = findViewById(R.id.buttonConsulta_menu);

@@ -5,6 +5,14 @@ public class DtoConsultor
     private int id;
     private String nome, telefone, email, cargo;
 
+    public String toString()
+    {
+        //Locale ptBr = new Locale("pt","BR");
+        //Date format = new SimpleDateFormat("dd/MM/yyyy").parse(dataInicio);
+
+        return nome +" - "+ telefone +" - "+ cargo;
+    }
+
     public String getCargo()
     {
         return cargo;

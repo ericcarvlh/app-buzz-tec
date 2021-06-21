@@ -1,11 +1,23 @@
 package com.example.buzztec.dto;
 
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class DtoAtividade
 {
     private int id;
     private String nm_consultor, nm_cliente, desc_atividade, dataInicio, dataTermino;
+
+    public String toString()
+    {
+        //Locale ptBr = new Locale("pt","BR");
+        //Date format = new SimpleDateFormat("dd/MM/yyyy").parse(dataInicio);
+
+        return nm_cliente +" - "+ nm_consultor +" - "+ dataInicio +" - "+ dataTermino;
+    }
 
     public String getDataInicio() {
         return dataInicio;

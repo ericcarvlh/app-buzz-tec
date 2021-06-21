@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.setTitle("Login");
+
         buttonEntrar    = findViewById(R.id.buttonEntrar_login);
 
         editTextSenha   = findViewById(R.id.editTextSenha_login);

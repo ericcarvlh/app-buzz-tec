@@ -1,11 +1,18 @@
 package com.example.buzztec.dto;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class DtoAgenda
 {
     private int id;
     private String nm_cliente, local_agenda, nm_consultor, desc_agenda, data_agenda;
+
+    public String toString()
+    {
+        return nm_cliente + " - " + nm_consultor + " - " + data_agenda;
+    }
 
     public String getData_agenda() {
         return data_agenda;

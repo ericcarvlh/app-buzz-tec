@@ -32,8 +32,8 @@ public class DaoBanco extends SQLiteOpenHelper
     {
         String strquery = "CREATE TABLE " +TABELA_LOGIN+ "(" +
                 "Id INTEGER primary key," +
-                "Usuario_login varchar(20) not null UNIQUE," +
-                "Senha_login varchar(20) not null UNIQUE)";
+                "Usuario_login varchar(10) not null UNIQUE," +
+                "Senha_login varchar(10) not null)";
         db_buzztec.execSQL(strquery);
         strquery = "CREATE TABLE " +TABELA_AGENDA+ "(" +
                 "Id INTEGER primary key," +
