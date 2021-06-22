@@ -50,13 +50,13 @@
 
     <!--inicio utilizados no componente spinnerConsulta-->
     <string-array name="spinner_consulta">
-    <item>Consulta</item>
-    <item>Agenda</item>
-    <item>Atividade</item>
-    <item>Cliente</item>
-    <item>Consultor</item>
-    <!--<item>Login</item>-->
-    <item>Serviço</item>
+        <item>Consulta</item>
+        <item>Agenda</item>
+        <item>Atividade</item>
+        <item>Cliente</item>
+        <item>Consultor</item>
+        <!--<item>Login</item>-->
+        <item>Serviço</item>
     </string-array>
     <!--fim utilizados no componente spinnerConsulta-->
 

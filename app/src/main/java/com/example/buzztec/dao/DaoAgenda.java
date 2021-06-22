@@ -90,6 +90,7 @@ public class DaoAgenda extends SQLiteOpenHelper
         dados.put("Nm_consultor", dtoAgenda.getNm_consultor());
         dados.put("Local_agenda", dtoAgenda.getLocal_agenda());
         dados.put("Data_agenda", dtoAgenda.getData_agenda());
+        dados.put("Data", dtoAgenda.getData_agenda());
         dados.put("Desc_agenda", dtoAgenda.getDesc_agenda());
         return dados;
     }

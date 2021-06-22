@@ -2,9 +2,12 @@ package com.example.buzztec.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Bundle;
+import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 
@@ -28,7 +31,8 @@ public class DaoServico extends SQLiteOpenHelper
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
+    {
 
     }
 
@@ -87,5 +91,13 @@ public class DaoServico extends SQLiteOpenHelper
         dados.put("Nm_servico", dtoServico.getNm_servico());
         dados.put("Desc_servico", dtoServico.getDesc_servico());
         return dados;
+    }
+
+    public void EnviaColunasUD(Intent detalhes, DtoServico dto)
+    {
+        detalhes.putExtra("Id", dto.getId());
+        detalhes.putExtra("Nm_servico", dto.getNm_servico());
+        detalhes.putExtra("Tp_servico", dto.getTp_servico());
+        detalhes.putExtra("Desc_servico", dto.getDesc_servico());
     }
 }

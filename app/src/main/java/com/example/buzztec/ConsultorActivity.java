@@ -15,7 +15,8 @@ import android.widget.Toast;
 import com.example.buzztec.dao.DaoConsultor;
 import com.example.buzztec.dto.DtoConsultor;
 
-public class ConsultorActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class ConsultorActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener
+{
     Spinner spinnerCargo;
     Button buttonCadastrar;
     EditText editTextNome, editTextEmail, editTextTelefone;
@@ -80,7 +81,8 @@ public class ConsultorActivity extends AppCompatActivity implements AdapterView.
     }
 
     @Override
-    public void onNothingSelected(AdapterView<?> parent) {
+    public void onNothingSelected(AdapterView<?> parent)
+    {
 
     }
 //    private void ColetadeDados()
