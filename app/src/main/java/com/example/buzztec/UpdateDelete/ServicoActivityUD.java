@@ -3,6 +3,7 @@ package com.example.buzztec.UpdateDelete;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.buzztec.ConsultaActivity;
+import com.example.buzztec.MenuActivity;
 import com.example.buzztec.R;
 import com.example.buzztec.dao.DaoServico;
 import com.example.buzztec.dto.DtoServico;
@@ -21,9 +22,8 @@ public class ServicoActivityUD extends AppCompatActivity
     EditText editTextDesc, editTextTipo, editTextNomeS;
     ImageButton buttonAlterar, buttonDeletar;
     int Id;
-    Intent detalhes;
-    DaoServico daoServico = new DaoServico(this);
-    DtoServico dtoServico = new DtoServico();
+    DaoServico dao = new DaoServico(this);
+    DtoServico dto = new DtoServico();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -51,7 +51,20 @@ public class ServicoActivityUD extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                dto.setId(Id);
+                dto.setDesc_servico(editTextDesc.getText().toString());
+                dto.setNm_servico(editTextNomeS.getText().toString());
+                dto.setTp_servico(editTextTipo.getText().toString());
 
+                try
+                {
+                    long strQuery = dao.Alterar(dto);
+                    RealizaComando(strQuery,ServicoActivityUD.this, MenuActivity.class);
+                }
+                catch (Exception ex)
+                {
+                    Toast.makeText(ServicoActivityUD.this, "Erro fatal" + ex.toString(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
         buttonDeletar.setOnClickListener(new View.OnClickListener()
@@ -59,7 +72,15 @@ public class ServicoActivityUD extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-
+                try
+                {
+                    long Query = dao.Excluir(Id);
+                    RealizaComando(Query, ServicoActivityUD.this, MenuActivity.class);
+                }
+                catch (Exception ex)
+                {
+                    Toast.makeText(ServicoActivityUD.this, "Erro fatal" + ex.toString(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -88,5 +109,14 @@ public class ServicoActivityUD extends AppCompatActivity
 //            Exc.setNegativeButton("Não", null);
 //            Exc.show();
 //        }
+    }
+    public void RealizaComando(long Query, Context context, Class clas)
+    {
+        if (Query > 0) {
+            Toast.makeText(context, "Sucesso", Toast.LENGTH_SHORT).show();
+            Intent voltar = new Intent(context, clas);
+            startActivity(voltar);
+        } else
+            Toast.makeText(context, "Erro ao cadastrar", Toast.LENGTH_SHORT).show();
     }
 }

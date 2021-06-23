@@ -2,12 +2,14 @@ package com.example.buzztec.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.buzztec.dto.DtoAgenda;
 import com.example.buzztec.dto.DtoAtividade;
 import com.example.buzztec.dto.DtoCliente;
 
@@ -50,11 +52,10 @@ public class DaoCliente extends SQLiteOpenHelper
         return arraylist;
     }
 
-    public int Excluir(DtoCliente dto)
+    public int Excluir(int id)
     {
-        String id = "id = ?";
-        String[] Dellonde = {dto.getId()+""};
-        return getReadableDatabase().delete(TABELA_CLIENTE, id, Dellonde);
+        String where = "id = "+id;
+        return getReadableDatabase().delete(TABELA_CLIENTE, where, null);
     }
 
     public long Alterar(DtoCliente dto)
@@ -90,5 +91,14 @@ public class DaoCliente extends SQLiteOpenHelper
         dados.put("Tell_cliente", dtoCliente.getTelefone());
         dados.put("Email_cliente", dtoCliente.getEmail());
         return dados;
+    }
+
+    public void EnviaColunasUD(Intent detalhes, DtoCliente dto)
+    {
+        detalhes.putExtra("Id", dto.getId());
+        detalhes.putExtra("Nm_cliente", dto.getNome());
+        detalhes.putExtra("Email_cliente", dto.getEmail());
+        detalhes.putExtra("Tell_cliente", dto.getTelefone());
+        detalhes.putExtra("Cd_cliente", dto.getCd_cliente());
     }
 }

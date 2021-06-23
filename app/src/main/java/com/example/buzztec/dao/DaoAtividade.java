@@ -48,11 +48,10 @@ public class DaoAtividade extends SQLiteOpenHelper
         return arraylist;
     }
 
-    public int Excluir(DtoAtividade dto)
+    public int Excluir(int id)
     {
-        String id = "id = ?";
-        String[] Dellonde = {dto.getId()+""};
-        return getReadableDatabase().delete(TABELA_ATIVIDADE, id, Dellonde);
+        String where = "id = "+id;
+        return getReadableDatabase().delete(TABELA_ATIVIDADE, where, null);
     }
 
     public long Alterar(DtoAtividade dto)

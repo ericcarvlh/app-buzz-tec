@@ -11,9 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BuzzTec">
-        <activity android:name=".UpdateDelete.ConsultorActivityUD"></activity>
+        <activity android:name=".UpdateDelete.AgendaActivityUD"></activity>
+        <activity android:name=".UpdateDelete.AtividadeActivityUD" />
+        <activity android:name=".UpdateDelete.ClienteActivityUD" />
+        <activity android:name=".UpdateDelete.ConsultorActivityUD" />
         <activity android:name=".UpdateDelete.ServicoActivityUD" />
-        <activity android:name=".UpdateDelete.AgendaActivityUD" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

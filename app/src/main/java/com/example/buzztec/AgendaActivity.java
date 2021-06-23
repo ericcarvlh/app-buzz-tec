@@ -1,11 +1,9 @@
 package com.example.buzztec;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
-import android.icu.text.DateFormat;
-import android.os.Build;
 import android.os.Bundle;
 
 import android.view.View;
@@ -16,17 +14,14 @@ import android.widget.Toast;
 import com.example.buzztec.dao.DaoAgenda;
 import com.example.buzztec.dto.DtoAgenda;
 
-import java.sql.Date;
-import java.text.ParseException;
-
 
 public class AgendaActivity extends AppCompatActivity
 {
     Button buttonCadastrar;
     EditText editTextData, editTextCliente,
     editTextConsultor, editTextLocal, editTextDesc;
-    DaoAgenda daoAgenda = new DaoAgenda(this);
-    DtoAgenda dtoAgenda = new DtoAgenda();
+    DaoAgenda dao = new DaoAgenda(this);
+    DtoAgenda dto = new DtoAgenda();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -36,7 +31,7 @@ public class AgendaActivity extends AppCompatActivity
 
         this.setTitle("Agenda");
 
-        buttonCadastrar   = findViewById(R.id.buttonCadastrarAgenda_agenda);
+        buttonCadastrar   = findViewById(R.id.buttonCadastrar_all);
 
         editTextCliente   = findViewById(R.id.editTextNmCliente_agenda);
         editTextConsultor = findViewById(R.id.editTextNmConsultor_agenda);
@@ -48,23 +43,16 @@ public class AgendaActivity extends AppCompatActivity
         {
             public void onClick(View v)
             {
-                dtoAgenda.setData_agenda(editTextData.getText().toString());
-                dtoAgenda.setNm_cliente(editTextCliente.getText().toString());
-                dtoAgenda.setNm_consultor(editTextConsultor.getText().toString());
-                dtoAgenda.setLocal_agenda(editTextLocal.getText().toString());
-                dtoAgenda.setDesc_agenda(editTextDesc.getText().toString());
+                dto.setData_agenda(editTextData.getText().toString());
+                dto.setNm_cliente(editTextCliente.getText().toString());
+                dto.setNm_consultor(editTextConsultor.getText().toString());
+                dto.setLocal_agenda(editTextLocal.getText().toString());
+                dto.setDesc_agenda(editTextDesc.getText().toString());
 
                 try
                 {
-                    long addAgenda = daoAgenda.CadastrarConsultor(dtoAgenda);
-                    if(addAgenda > 0)
-                    {
-                        Toast.makeText(AgendaActivity.this, "Sucesso!", Toast.LENGTH_SHORT).show();
-                        Intent voltar = new Intent(AgendaActivity.this, MenuActivity.class);
-                        startActivity(voltar);
-                    }
-                    else
-                        Toast.makeText(AgendaActivity.this, "Erro ao casastrar.", Toast.LENGTH_SHORT).show();
+                    long Query = dao.CadastrarAgenda(dto);
+                    RealizaComando(Query, AgendaActivity.this, MenuActivity.class);
                 }
                 catch (Exception ex)
                 {
@@ -72,5 +60,14 @@ public class AgendaActivity extends AppCompatActivity
                 }
             }
         });
+    }
+    public void RealizaComando(long strQuery, Context context, Class clas)
+    {
+        if (strQuery > 0) {
+            Toast.makeText(context, "Sucesso", Toast.LENGTH_SHORT).show();
+            Intent voltar = new Intent(context, clas);
+            startActivity(voltar);
+        } else
+            Toast.makeText(context, "Erro ao cadastrar", Toast.LENGTH_SHORT).show();
     }
 }

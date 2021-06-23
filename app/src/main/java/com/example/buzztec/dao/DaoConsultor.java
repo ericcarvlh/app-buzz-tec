@@ -51,11 +51,10 @@ public class DaoConsultor extends SQLiteOpenHelper
         return arraylist;
     }
 
-    public int Excluir(DtoConsultor dto)
+    public int Excluir(int id)
     {
-        String id = "id = ?";
-        String[] Dellonde = {dto.getId()+""};
-        return getReadableDatabase().delete(TABELA_CONSULTOR, id, Dellonde);
+        String where = "id = "+id;
+        return getReadableDatabase().delete(TABELA_CONSULTOR, where, null);
     }
 
     public long Alterar(DtoConsultor dto)
@@ -99,6 +98,5 @@ public class DaoConsultor extends SQLiteOpenHelper
         detalhes.putExtra("Nm_consultor", dto.getNome());
         detalhes.putExtra("Tell_consultor", dto.getTelefone());
         detalhes.putExtra("Email_consultor", dto.getEmail());
-        detalhes.putExtra("Cargo_consultor", dto.getCargo());
     }
 }

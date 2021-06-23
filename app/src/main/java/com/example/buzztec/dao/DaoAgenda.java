@@ -2,6 +2,7 @@ package com.example.buzztec.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -9,6 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import com.example.buzztec.dto.DtoAgenda;
+import com.example.buzztec.dto.DtoConsultor;
 
 import java.sql.Date;
 import java.text.DateFormat;
@@ -33,7 +35,7 @@ public class DaoAgenda extends SQLiteOpenHelper
     }
 
 
-    public long CadastrarConsultor(DtoAgenda dto)
+    public long CadastrarAgenda(DtoAgenda dto)
     {
         ContentValues dados = Colunas(dto);
 
@@ -50,11 +52,10 @@ public class DaoAgenda extends SQLiteOpenHelper
         return arraylist;
     }
 
-    public int Excluir(DtoAgenda dto)
+    public int Excluir(int id)
     {
-        String id = "id = ?";
-        String[] Dellonde = {dto.getId()+""};
-        return getReadableDatabase().delete(TABELA_AGENDA, id, Dellonde);
+        String where = "id = "+id;
+        return getReadableDatabase().delete(TABELA_AGENDA, where, null);
     }
 
     public long Alterar(DtoAgenda dto)
@@ -83,15 +84,24 @@ public class DaoAgenda extends SQLiteOpenHelper
         }
     }
 
-    private ContentValues Colunas(DtoAgenda dtoAgenda)
+    private ContentValues Colunas(DtoAgenda dto)
     {
         ContentValues dados = new ContentValues();
-        dados.put("Nm_cliente", dtoAgenda.getNm_cliente());
-        dados.put("Nm_consultor", dtoAgenda.getNm_consultor());
-        dados.put("Local_agenda", dtoAgenda.getLocal_agenda());
-        dados.put("Data_agenda", dtoAgenda.getData_agenda());
-        dados.put("Data", dtoAgenda.getData_agenda());
-        dados.put("Desc_agenda", dtoAgenda.getDesc_agenda());
+        dados.put("Nm_cliente", dto.getNm_cliente());
+        dados.put("Nm_consultor", dto.getNm_consultor());
+        dados.put("Local_agenda", dto.getLocal_agenda());
+        dados.put("Data_agenda", dto.getData_agenda());
+        dados.put("Desc_agenda", dto.getDesc_agenda());
         return dados;
+    }
+
+    public void EnviaColunasUD(Intent detalhes, DtoAgenda dto)
+    {
+        detalhes.putExtra("Id", dto.getId());
+        detalhes.putExtra("Nm_cliente", dto.getNm_cliente());
+        detalhes.putExtra("Nm_consultor", dto.getNm_consultor());
+        detalhes.putExtra("Local_agenda", dto.getLocal_agenda());
+        detalhes.putExtra("Data_agenda", dto.getData_agenda());
+        detalhes.putExtra("Desc_agenda", dto.getDesc_agenda());
     }
 }

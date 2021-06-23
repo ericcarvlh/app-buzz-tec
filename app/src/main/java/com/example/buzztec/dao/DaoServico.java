@@ -53,11 +53,10 @@ public class DaoServico extends SQLiteOpenHelper
         return arraylist;
     }
 
-    public int Excluir(DtoServico dto)
+    public int Excluir(int id)
     {
-        String id = "id = ?";
-        String[] Dellonde = {dto.getId()+""};
-        return getReadableDatabase().delete(TABELA_SERVICO, id, Dellonde);
+        String where = "id = "+id;
+        return getReadableDatabase().delete(TABELA_SERVICO, where, null);
     }
 
     public long Alterar(DtoServico dto)

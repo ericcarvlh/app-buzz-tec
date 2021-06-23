@@ -4,75 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateDelete.ClienteActivity">
+    tools:context=".UpdateDelete.AtividadeActivityUD">
 
     <EditText
-        android:id="@+id/editTextData_agenda"
+        android:id="@+id/editTextDataInicio_atividade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="100dp"
         android:ems="10"
-        android:hint="@string/data_agenda"
         android:inputType="date"
+        android:hint="@string/inicio_atividade"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNmCliente_agenda"
+        android:id="@+id/editTextDataTermino_atividade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="date"
+        android:hint="@string/termino_atividade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDataInicio_atividade" />
+
+    <EditText
+        android:id="@+id/editTextNmCliente_atividade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="@string/cliente_atividade"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextData_agenda" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNmConsultor_atividade" />
 
     <EditText
-        android:id="@+id/editTextLocal_agenda"
+        android:id="@+id/editTextNmConsultor_atividade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="@string/local_agenda"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNmCliente_agenda" />
-
-    <EditText
-        android:id="@+id/editTextNmConsultor_agenda"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="@string/consultor_atividade"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextLocal_agenda" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDataTermino_atividade" />
 
     <EditText
-        android:id="@+id/editTextDesc_agenda"
+        android:id="@+id/editTextDesc_atividade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="@string/desc_servico"
+        android:layout_marginTop="24dp"
+        android:hint="@string/atividade_atividade"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNmConsultor_agenda" />
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNmCliente_atividade" />
 
     <include
-        android:id="@+id/agenda_detalhes"
+        android:id="@+id/consultor_detalhes"
         layout="@layout/botoes_modelo"
         android:layout_width="match_parent"
         android:layout_height="90dp"
