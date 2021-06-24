@@ -17,8 +17,9 @@ public class ServicoActivity extends AppCompatActivity
 {
     Button buttonCadastrar;
     EditText editTextTipo, editTextNomeS, editTextDesc;
-    DtoServico dtoServico = new DtoServico();
-    DaoServico daoServico = new DaoServico(this);
+    DtoServico dto = new DtoServico();
+    DaoServico dao = new DaoServico(this);
+    DaoBanco  daoB = new DaoBanco(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,21 +40,14 @@ public class ServicoActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                dtoServico.setDesc_servico(editTextDesc.getText().toString());
-                dtoServico.setTp_servico(editTextTipo.getText().toString());
-                dtoServico.setNm_servico(editTextNomeS.getText().toString());
+                dto.setDesc_servico(editTextDesc.getText().toString());
+                dto.setTp_servico(editTextTipo.getText().toString());
+                dto.setNm_servico(editTextNomeS.getText().toString());
 
                 try
                 {
-                    long addServico = daoServico.CadastrarServico(dtoServico);
-                    if(addServico > 0)
-                    {
-                        Toast.makeText(ServicoActivity.this, "Sucesso", Toast.LENGTH_SHORT).show();
-                        Intent voltar = new Intent(ServicoActivity.this, MenuActivity.class);
-                        startActivity(voltar);
-                    }
-                    else
-                        Toast.makeText(ServicoActivity.this, "Erro ao cadastrar", Toast.LENGTH_SHORT).show();
+                    long Query = dao.CadastrarServico(dto);
+                    daoB.RealizaComando(Query, ServicoActivity.this, MenuActivity.class);
                 }
                 catch (Exception ex)
                 {

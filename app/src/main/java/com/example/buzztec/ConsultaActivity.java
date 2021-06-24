@@ -13,6 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import com.example.buzztec.UpdateDelete.AgendaActivityUD;
+import com.example.buzztec.UpdateDelete.AtividadeActivityUD;
+import com.example.buzztec.UpdateDelete.ClienteActivityUD;
 import com.example.buzztec.UpdateDelete.ConsultorActivityUD;
 import com.example.buzztec.UpdateDelete.ServicoActivityUD;
 import com.example.buzztec.dao.DaoAgenda;
@@ -44,7 +47,7 @@ public class ConsultaActivity extends AppCompatActivity implements AdapterView.O
     DtoServico dtoServico;
     ListView listViewTds;
     Spinner spinnerConsulta;
-    String escolha;
+    String escolha, tipo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -57,6 +60,8 @@ public class ConsultaActivity extends AppCompatActivity implements AdapterView.O
         spinnerConsulta = findViewById(R.id.spinnerCargo_Consulta);
         listViewTds     = findViewById(R.id.listviewInfo);
 
+        tipo = spinnerConsulta.toString();
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spinner_consulta, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerConsulta.setAdapter(adapter);
@@ -67,11 +72,23 @@ public class ConsultaActivity extends AppCompatActivity implements AdapterView.O
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id)
             {
-//                dtoAgenda    = arrayListAgenda.get(position);
-//                dtoAtividade = arrayListAtividade.get(position);
-//                dtoCliente   = arrayListCliente.get(position);
-               dtoConsultor = arrayListConsultor.get(position);
-//                dtoServico   = arrayListServico.get(position);
+                switch (escolha)
+                {
+                    case "Agenda":
+                        dtoAgenda    = arrayListAgenda.get(position);
+                        break;
+                    case "Atividade":
+                        dtoAtividade = arrayListAtividade.get(position);
+                        break;
+                    case "Cliente":
+                        dtoCliente   = arrayListCliente.get(position);
+                        break;
+                    case "Consultor":
+                        dtoConsultor = arrayListConsultor.get(position);
+                        break;
+                    case "Serviço":
+                        dtoServico = arrayListServico.get(position);
+                }
                 registerForContextMenu(listViewTds);
                 return false;
             }
@@ -122,7 +139,6 @@ public class ConsultaActivity extends AppCompatActivity implements AdapterView.O
     {
         super.onCreateContextMenu(menu, v, menuInfo);
 
-
         menu.add(0, 0, 0, "Detalhes/Alterar");
         menu.add(0, 1, 1, "Excluir");
     }
@@ -132,9 +148,36 @@ public class ConsultaActivity extends AppCompatActivity implements AdapterView.O
     {
         if(item.getItemId()==0 || item.getItemId()==1)
         {
-            Intent detalhes = new Intent(ConsultaActivity.this, ConsultorActivityUD.class);
-            daoConsultor.EnviaColunasUD(detalhes, dtoConsultor);
-            startActivity(detalhes);
+            switch (escolha)
+            {
+                case "Agenda":
+                    Intent agenda = new Intent(ConsultaActivity.this, AgendaActivityUD.class);
+                    daoAgenda.EnviaColunasUD(agenda, dtoAgenda);
+                    startActivity(agenda);
+                    break;
+                case "Atividade":
+                    Intent atividade = new Intent(ConsultaActivity.this, AtividadeActivityUD.class);
+                    daoAtividade.EnviaColunasUD(atividade, dtoAtividade);
+                    startActivity(atividade);
+                    break;
+                case "Cliente":
+                    Intent cliente = new Intent(ConsultaActivity.this, ClienteActivityUD.class);
+                    daoCliente.EnviaColunasUD(cliente, dtoCliente);
+                    startActivity(cliente);
+                    break;
+                case "Consultor":
+                    Intent consultor = new Intent(ConsultaActivity.this, ConsultorActivityUD.class);
+                    daoConsultor.EnviaColunasUD(consultor, dtoConsultor);
+                    startActivity(consultor);
+                    break;
+                case "Serviço":
+                    Intent servico = new Intent(ConsultaActivity.this, ServicoActivityUD.class);
+                    daoServico.EnviaColunasUD(servico, dtoServico);
+                    startActivity(servico);
+                    break;
+                default:
+                    break;
+            }
         }
         return super.onContextItemSelected(item);
     }

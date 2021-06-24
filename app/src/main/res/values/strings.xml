@@ -48,6 +48,12 @@
     <string name="title_activity_localizacao">Localização</string>
     <!--fim utilizados no componente toolbar-->
 
+    <!--inicio utilizados na tela sobre-->
+    <string name="versao_sobre">Versão 1.0</string>
+    <string name="creditos_sobre">Desenvolvido por Buzz Tecnolgoia</string>
+    <string name="creditos2_sobre">Powered By Buzz Tecnologia</string>
+    <!--fim utilizados na tela sobre-->
+
     <!--inicio utilizados no componente spinnerConsulta-->
     <string-array name="spinner_consulta">
         <item>Consulta</item>

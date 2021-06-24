@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.buzztec.ConsultaActivity;
 import com.example.buzztec.MenuActivity;
 import com.example.buzztec.R;
+import com.example.buzztec.dao.DaoBanco;
 import com.example.buzztec.dao.DaoConsultor;
 import com.example.buzztec.dto.DtoConsultor;
 
@@ -28,6 +29,7 @@ public class ConsultorActivityUD extends AppCompatActivity implements AdapterVie
     String escolha;
     DtoConsultor dto = new DtoConsultor();
     DaoConsultor dao = new DaoConsultor(this);
+    DaoBanco    daoB = new DaoBanco(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,6 +41,7 @@ public class ConsultorActivityUD extends AppCompatActivity implements AdapterVie
 
         buttonAlterar = findViewById(R.id.buttonAlterar_UD);
         buttonDeletar = findViewById(R.id.buttonDeletar_UD);
+
         spinnerCargo     = findViewById(R.id.spinnerCargo_Consultor);
 
         editTextNome     = findViewById(R.id.editTextNome_Consultor);
@@ -66,7 +69,7 @@ public class ConsultorActivityUD extends AppCompatActivity implements AdapterVie
                 try
                 {
                     long Query = dao.Alterar(dto);
-                    RealizaComando(Query,ConsultorActivityUD.this, MenuActivity.class);
+                    daoB.RealizaComando(Query,ConsultorActivityUD.this, ConsultaActivity.class);
                 }
                 catch (Exception ex)
                 {
@@ -79,31 +82,14 @@ public class ConsultorActivityUD extends AppCompatActivity implements AdapterVie
             @Override
             public void onClick(View v)
             {
-                try
-                {
-                    long Query = dao.Excluir(Id);
-                    RealizaComando(Query, ConsultorActivityUD.this, MenuActivity.class);
-                }
-                catch (Exception ex)
-                {
-                    Toast.makeText(ConsultorActivityUD.this, "Erro fatal" + ex.toString(), Toast.LENGTH_SHORT).show();
-                }
+                long Query = dao.Excluir(Id);
+                daoB.AlertaExclusao(ConsultorActivityUD.this, ConsultaActivity.class, Query);
             }
         });
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spinner_cargo, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCargo.setAdapter(adapter);
         spinnerCargo.setOnItemSelectedListener(this);
-    }
-
-    public void RealizaComando(long Query, Context context, Class clas)
-    {
-        if (Query > 0) {
-            Toast.makeText(context, "Sucesso", Toast.LENGTH_SHORT).show();
-            Intent voltar = new Intent(context, clas);
-            startActivity(voltar);
-        } else
-            Toast.makeText(context, "Erro ao cadastrar", Toast.LENGTH_SHORT).show();
     }
 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id)

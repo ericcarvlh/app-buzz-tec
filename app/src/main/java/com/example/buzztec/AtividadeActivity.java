@@ -9,7 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.buzztec.UpdateDelete.AgendaActivityUD;
 import com.example.buzztec.dao.DaoAtividade;
+import com.example.buzztec.dao.DaoBanco;
 import com.example.buzztec.dto.DtoAtividade;
 
 public class AtividadeActivity extends AppCompatActivity
@@ -17,8 +19,9 @@ public class AtividadeActivity extends AppCompatActivity
     Button buttonCadastrar;
     EditText editTextDataIni, editTextDataTer,
     editTextConsultor, editTextCliente, editTextDesc;
-    DtoAtividade dtoAtividade = new DtoAtividade();
-    DaoAtividade daoAtividade = new DaoAtividade(this);
+    DtoAtividade dto = new DtoAtividade();
+    DaoAtividade dao = new DaoAtividade(this);
+    DaoBanco    daoB = new DaoBanco(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -41,23 +44,17 @@ public class AtividadeActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                dtoAtividade.setDataInicio(editTextDataIni.getText().toString());
-                dtoAtividade.setDataTermino(editTextDataTer.getText().toString());
-                dtoAtividade.setNm_cliente(editTextCliente.getText().toString());
-                dtoAtividade.setNm_consultor(editTextConsultor.getText().toString());
-                dtoAtividade.setDesc_atividade(editTextDesc.getText().toString());
+                dto.setDataInicio(editTextDataIni.getText().toString());
+                dto.setDataTermino(editTextDataTer.getText().toString());
+                dto.setNm_cliente(editTextCliente.getText().toString());
+                dto.setNm_consultor(editTextConsultor.getText().toString());
+                dto.setDesc_atividade(editTextDesc.getText().toString());
                 
                 try
                 {
-                    long addAtividade = daoAtividade.CadastrarAtividade(dtoAtividade);
-                    if(addAtividade > 0)
-                    {
-                        Toast.makeText(AtividadeActivity.this, "Sucesso!", Toast.LENGTH_SHORT).show();
-                        Intent voltar = new Intent(AtividadeActivity.this, MenuActivity.class);
-                        startActivity(voltar);
-                    }
-                    else
-                        Toast.makeText(AtividadeActivity.this, "Erro ao cadastrar.", Toast.LENGTH_SHORT).show();
+                    long Query = dao.CadastrarAtividade(dto);
+                    daoB.RealizaComando(Query, AtividadeActivity.this, MenuActivity.class);
+
                 }
                 catch (Exception ex)
                 {

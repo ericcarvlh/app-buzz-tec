@@ -1,18 +1,16 @@
 package com.example.buzztec.dao;
 
-import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-
-import com.example.buzztec.dto.DtoLogin;
-import com.example.buzztec.dto.DtoServico;
-
-import java.util.ArrayList;
-import java.util.List;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 
 public class DaoBanco extends SQLiteOpenHelper
 {
@@ -73,7 +71,10 @@ public class DaoBanco extends SQLiteOpenHelper
         db_buzztec.execSQL(strquery);
         strquery = "INSERT INTO "+TABELA_LOGIN+" VALUES" +
                 "(1, 'eriquin', '1234567')," +
-                "(2, 'leozin', '12345678')";
+                "(2, 'leozin', '12345678')," +
+                "(3, 'amanda', '12345')," +
+                "(4, 'fabi', '123456')," +
+                "(5, 'cicerov', '1234')";
         db_buzztec.execSQL(strquery);
     }
 
@@ -94,5 +95,47 @@ public class DaoBanco extends SQLiteOpenHelper
         {return 0;}
     }
 
+    public void RealizaComando(long Query, Context context, Class clas)
+    {
+        if (Query > 0) {
+            Toast.makeText(context, "Sucesso", Toast.LENGTH_SHORT).show();
+            Intent voltar = new Intent(context, clas);
+            ContextCompat.startActivity(context, voltar, null);
+
+        } else
+            Toast.makeText(context, "Erro ao cadastrar", Toast.LENGTH_SHORT).show();
+    }
+
+    public void AlertaExclusao(Context context, Class clas, long Query) {
+        String sExcMsg = "Tem certeza que deseja excluir?";
+        String sExcTt  = "Deseja Prosseguir?";
+        AlertDialog.Builder Exc = new AlertDialog.Builder(context);
+        Exc.setMessage(sExcMsg);
+        Exc.setIcon(android.R.drawable.stat_notify_error);
+        Exc.setTitle(sExcTt);
+        Exc.setPositiveButton("Sim", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                try
+                {
+                    if (Query > 0) {
+                        Toast.makeText(context, "Sucesso", Toast.LENGTH_SHORT).show();
+                        Intent voltar = new Intent(context, clas);
+                        ContextCompat.startActivity(context, voltar, null);
+
+                    } else
+                        Toast.makeText(context, "Erro", Toast.LENGTH_SHORT).show();
+                }
+                catch (Exception ex)
+                {
+                    Toast.makeText(context, "Erro fatal" + ex.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        Exc.setNegativeButton("Não", null);
+        Exc.show();
+    }
 
 }

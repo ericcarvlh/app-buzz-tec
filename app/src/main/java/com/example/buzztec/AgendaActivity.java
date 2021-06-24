@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.buzztec.dao.DaoAgenda;
+import com.example.buzztec.dao.DaoBanco;
 import com.example.buzztec.dto.DtoAgenda;
 
 
@@ -22,6 +23,7 @@ public class AgendaActivity extends AppCompatActivity
     editTextConsultor, editTextLocal, editTextDesc;
     DaoAgenda dao = new DaoAgenda(this);
     DtoAgenda dto = new DtoAgenda();
+    DaoBanco daoB = new DaoBanco(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -31,7 +33,7 @@ public class AgendaActivity extends AppCompatActivity
 
         this.setTitle("Agenda");
 
-        buttonCadastrar   = findViewById(R.id.buttonCadastrar_all);
+        buttonCadastrar   = findViewById(R.id.buttonCadastrarAgenda_agenda);
 
         editTextCliente   = findViewById(R.id.editTextNmCliente_agenda);
         editTextConsultor = findViewById(R.id.editTextNmConsultor_agenda);
@@ -52,7 +54,7 @@ public class AgendaActivity extends AppCompatActivity
                 try
                 {
                     long Query = dao.CadastrarAgenda(dto);
-                    RealizaComando(Query, AgendaActivity.this, MenuActivity.class);
+                    daoB.RealizaComando(Query, AgendaActivity.this, MenuActivity.class);
                 }
                 catch (Exception ex)
                 {
@@ -60,14 +62,5 @@ public class AgendaActivity extends AppCompatActivity
                 }
             }
         });
-    }
-    public void RealizaComando(long strQuery, Context context, Class clas)
-    {
-        if (strQuery > 0) {
-            Toast.makeText(context, "Sucesso", Toast.LENGTH_SHORT).show();
-            Intent voltar = new Intent(context, clas);
-            startActivity(voltar);
-        } else
-            Toast.makeText(context, "Erro ao cadastrar", Toast.LENGTH_SHORT).show();
     }
 }

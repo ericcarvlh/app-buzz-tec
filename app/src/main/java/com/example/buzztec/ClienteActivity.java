@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.buzztec.dao.DaoBanco;
 import com.example.buzztec.dao.DaoCliente;
 import com.example.buzztec.dto.DtoCliente;
 
@@ -16,8 +17,9 @@ public class ClienteActivity extends AppCompatActivity
 {
     Button buttonCadastrar;
     EditText editTextNome, editTextEmail, editTextTelefone, editTextCodigo;
-    DtoCliente dtoCliente = new DtoCliente();
-    DaoCliente daoCliente = new DaoCliente(this);
+    DtoCliente dto = new DtoCliente();
+    DaoCliente dao = new DaoCliente(this);
+    DaoBanco  daoB = new DaoBanco(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,22 +41,15 @@ public class ClienteActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                dtoCliente.setCd_cliente(Integer.parseInt(editTextCodigo.getText().toString()));
-                dtoCliente.setNome(editTextNome.getText().toString());
-                dtoCliente.setTelefone(editTextTelefone.getText().toString());
-                dtoCliente.setEmail(editTextEmail.getText().toString());
+                dto.setCd_cliente(Integer.parseInt(editTextCodigo.getText().toString()));
+                dto.setNome(editTextNome.getText().toString());
+                dto.setTelefone(editTextTelefone.getText().toString());
+                dto.setEmail(editTextEmail.getText().toString());
 
                 try
                 {
-                    long addCliente = daoCliente.CadastrarCliente(dtoCliente);
-                    if(addCliente > 0)
-                    {
-                        Toast.makeText(ClienteActivity.this, "Sucesso", Toast.LENGTH_SHORT).show();
-                        Intent voltar = new Intent(ClienteActivity.this, MenuActivity.class);
-                        startActivity(voltar);
-                    }
-                    else
-                        Toast.makeText(ClienteActivity.this, "Erro ao cadastrar", Toast.LENGTH_SHORT).show();
+                    long Query = dao.CadastrarCliente(dto);
+                    daoB.RealizaComando(Query, ClienteActivity.this, MenuActivity.class);
                 }
                 catch (Exception ex)
                 {

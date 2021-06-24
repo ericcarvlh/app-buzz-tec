@@ -10,8 +10,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.buzztec.ConsultaActivity;
 import com.example.buzztec.MenuActivity;
 import com.example.buzztec.R;
+import com.example.buzztec.dao.DaoBanco;
 import com.example.buzztec.dao.DaoCliente;
 import com.example.buzztec.dto.DtoCliente;
 
@@ -22,6 +24,7 @@ public class ClienteActivityUD extends AppCompatActivity
     int Id;
     DtoCliente dto = new DtoCliente();
     DaoCliente dao = new DaoCliente(this);
+    DaoBanco  daoB = new DaoBanco(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,7 +47,7 @@ public class ClienteActivityUD extends AppCompatActivity
         editTextEmail.setText(puxarDados.getString("Email_cliente"));
         editTextNome.setText(puxarDados.getString("Nm_cliente"));
         editTextTelefone.setText(puxarDados.getString("Tell_cliente"));
-        editTextCodigo.setText(puxarDados.getString("Cd_cliente"));
+        editTextCodigo.setText(puxarDados.getInt("Cd_cliente")+"");
 
         buttonAlterar.setOnClickListener(new View.OnClickListener()
         {
@@ -55,12 +58,12 @@ public class ClienteActivityUD extends AppCompatActivity
                 dto.setEmail(editTextEmail.getText().toString());
                 dto.setNome(editTextNome.getText().toString());
                 dto.setTelefone(editTextTelefone.getText().toString());
-                dto.setCd_cliente(editTextCodigo.getInputType());
+                dto.setCd_cliente(Integer.parseInt(editTextCodigo.getText().toString()));
 
                 try
                 {
                     long strQuery = dao.Alterar(dto);
-                    RealizaComando(strQuery, ClienteActivityUD.this, MenuActivity.class);
+                    daoB.RealizaComando(strQuery, ClienteActivityUD.this, ConsultaActivity.class);
                 }
                 catch (Exception ex)
                 {
@@ -73,25 +76,8 @@ public class ClienteActivityUD extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                try
-                {
-                    long Query = dao.Excluir(Id);
-                    RealizaComando(Query, ClienteActivityUD.this, MenuActivity.class);
-                }
-                catch (Exception ex)
-                {
-                    Toast.makeText(ClienteActivityUD.this, "Erro fatal" + ex.toString(), Toast.LENGTH_SHORT).show();
-                }
+
             }
         });
-    }
-    public void RealizaComando(long Query, Context context, Class clas)
-    {
-        if (Query > 0) {
-            Toast.makeText(context, "Sucesso", Toast.LENGTH_SHORT).show();
-            Intent voltar = new Intent(context, clas);
-            startActivity(voltar);
-        } else
-            Toast.makeText(context, "Erro ao cadastrar", Toast.LENGTH_SHORT).show();
     }
 }

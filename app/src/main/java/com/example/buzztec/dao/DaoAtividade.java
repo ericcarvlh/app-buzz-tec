@@ -2,6 +2,7 @@ package com.example.buzztec.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -90,6 +91,16 @@ public class DaoAtividade extends SQLiteOpenHelper
         dados.put("Nm_cliente",  dtoAtividade.getNm_cliente());
         dados.put("Desc_atividade",  dtoAtividade.getDesc_atividade());
         return dados;
+    }
+
+    public void EnviaColunasUD(Intent detalhes, DtoAtividade dto)
+    {
+        detalhes.putExtra("Id", dto.getId());
+        detalhes.putExtra("Nm_cliente", dto.getNm_cliente());
+        detalhes.putExtra("Nm_consultor", dto.getNm_consultor());
+        detalhes.putExtra("Data_inicio", dto.getDataInicio());
+        detalhes.putExtra("Data_termino", dto.getDataTermino());
+        detalhes.putExtra("Desc_atividade", dto.getDesc_atividade());
     }
 
 }

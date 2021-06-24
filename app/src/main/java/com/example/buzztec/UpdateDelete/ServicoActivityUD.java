@@ -12,8 +12,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.buzztec.ConsultaActivity;
 import com.example.buzztec.MenuActivity;
 import com.example.buzztec.R;
+import com.example.buzztec.dao.DaoBanco;
 import com.example.buzztec.dao.DaoServico;
 import com.example.buzztec.dto.DtoServico;
 
@@ -24,6 +26,7 @@ public class ServicoActivityUD extends AppCompatActivity
     int Id;
     DaoServico dao = new DaoServico(this);
     DtoServico dto = new DtoServico();
+    DaoBanco  daoB = new DaoBanco(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -58,8 +61,8 @@ public class ServicoActivityUD extends AppCompatActivity
 
                 try
                 {
-                    long strQuery = dao.Alterar(dto);
-                    RealizaComando(strQuery,ServicoActivityUD.this, MenuActivity.class);
+                    long Query = dao.Alterar(dto);
+                    daoB.RealizaComando(Query,ServicoActivityUD.this, ConsultaActivity.class);
                 }
                 catch (Exception ex)
                 {
@@ -72,51 +75,10 @@ public class ServicoActivityUD extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                try
-                {
-                    long Query = dao.Excluir(Id);
-                    RealizaComando(Query, ServicoActivityUD.this, MenuActivity.class);
-                }
-                catch (Exception ex)
-                {
-                    Toast.makeText(ServicoActivityUD.this, "Erro fatal" + ex.toString(), Toast.LENGTH_SHORT).show();
-                }
+                long Query = dao.Excluir(Id);
+                daoB.AlertaExclusao(ServicoActivityUD.this, ConsultaActivity.class, Query);
             }
         });
 
-//        private void DellCarro()
-//        {
-//            AlertDialog.Builder Exc = new AlertDialog.Builder(this);
-//            Exc.setMessage(sExcMsg);
-//            Exc.setIcon(android.R.drawable.stat_notify_error);
-//            Exc.setTitle(sExcTt);
-//            Exc.setPositiveButton("Sim", new DialogInterface.OnClickListener()
-//            {
-//                @Override
-//                public void onClick(DialogInterface dialog, int which)
-//                {
-//                    int dellCarro = daoServico.Excluir(dtoServico);
-//                    if(dellCarro > 0)
-//                    {
-//                        Toast.makeText(ConsultaActivity.this, "Deleteado com sucesso.", Toast.LENGTH_SHORT).show();
-//                        arrayListServico = daoServico.ConsultarTodos();
-//                        UpdateListViewServico();
-//                    }
-//                    else
-//                        Toast.makeText(ConsultaActivity.this, "Erro ao deletar", Toast.LENGTH_SHORT).show();
-//                }
-//            });
-//            Exc.setNegativeButton("Não", null);
-//            Exc.show();
-//        }
-    }
-    public void RealizaComando(long Query, Context context, Class clas)
-    {
-        if (Query > 0) {
-            Toast.makeText(context, "Sucesso", Toast.LENGTH_SHORT).show();
-            Intent voltar = new Intent(context, clas);
-            startActivity(voltar);
-        } else
-            Toast.makeText(context, "Erro ao cadastrar", Toast.LENGTH_SHORT).show();
     }
 }

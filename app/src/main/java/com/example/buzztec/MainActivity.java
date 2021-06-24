@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity
 {
     Button buttonEntrar;
     EditText editTextUsuario, editTextSenha;
-    DaoBanco daoBanco = new DaoBanco(this);
+    DaoBanco daoB = new DaoBanco(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity
                 String senha = editTextSenha.getText().toString();
                 try
                 {
-                    Long ConsultaUsu = daoBanco.ConsultarLogin(usuario, senha);
-                    if(ConsultaUsu > 0 )
+                    Long Query = daoB.ConsultarLogin(usuario, senha);
+                    if(Query > 0 )
                     {
                             Intent prox = new Intent(MainActivity.this, MenuActivity.class);
                             Toast.makeText(MainActivity.this, "sucesso", Toast.LENGTH_SHORT).show();

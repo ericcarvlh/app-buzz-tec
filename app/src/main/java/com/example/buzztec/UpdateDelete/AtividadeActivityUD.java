@@ -11,9 +11,11 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.buzztec.ConsultaActivity;
 import com.example.buzztec.MenuActivity;
 import com.example.buzztec.R;
 import com.example.buzztec.dao.DaoAtividade;
+import com.example.buzztec.dao.DaoBanco;
 import com.example.buzztec.dto.DtoAtividade;
 
 public class AtividadeActivityUD extends AppCompatActivity
@@ -24,6 +26,7 @@ public class AtividadeActivityUD extends AppCompatActivity
     editTextConsultor, editTextCliente, editTextDesc;
     DtoAtividade dto = new DtoAtividade();
     DaoAtividade dao = new DaoAtividade(this);
+    DaoBanco    daoB = new DaoBanco(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -42,11 +45,11 @@ public class AtividadeActivityUD extends AppCompatActivity
 
         Bundle puxarDados = getIntent().getExtras();
         Id = puxarDados.getInt("Id");
-        editTextDataIni.setText(puxarDados.getString("Nm_consultor"));
-        editTextDataTer.setText(puxarDados.getString("Email_consultor"));
-        editTextCliente.setText(puxarDados.getString("Tell_consultor"));
-        editTextConsultor.setText(puxarDados.getString("Tell_consultor"));
-        editTextDesc.setText(puxarDados.getString("Tell_consultor"));
+        editTextDataIni.setText(puxarDados.getString("Data_inicio"));
+        editTextDataTer.setText(puxarDados.getString("Data_termino"));
+        editTextCliente.setText(puxarDados.getString("Nm_cliente"));
+        editTextConsultor.setText(puxarDados.getString("Nm_consultor"));
+        editTextDesc.setText(puxarDados.getString("Desc_atividade"));
 
         buttonAlterar.setOnClickListener(new View.OnClickListener()
         {
@@ -62,8 +65,8 @@ public class AtividadeActivityUD extends AppCompatActivity
 
                 try
                 {
-                    long strQuery = dao.Alterar(dto);
-                    RealizaComando(strQuery, AtividadeActivityUD.this, MenuActivity.class);
+                    long Query = dao.Alterar(dto);
+                    daoB.RealizaComando(Query, AtividadeActivityUD.this, ConsultaActivity.class);
                 }
                 catch (Exception ex)
                 {
@@ -76,25 +79,9 @@ public class AtividadeActivityUD extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                try
-                {
-                    long Query = dao.Excluir(Id);
-                    RealizaComando(Query, AtividadeActivityUD.this, MenuActivity.class);
-                }
-                catch (Exception ex)
-                {
-                    Toast.makeText(AtividadeActivityUD.this, "Erro fatal" + ex.toString(), Toast.LENGTH_SHORT).show();
-                }
+                long Query = dao.Excluir(Id);
+                daoB.AlertaExclusao(AtividadeActivityUD.this, ConsultaActivity.class, Query);
             }
         });
-    }
-    public void RealizaComando(long Query, Context context, Class clas)
-    {
-        if (Query > 0) {
-            Toast.makeText(context, "Sucesso", Toast.LENGTH_SHORT).show();
-            Intent voltar = new Intent(context, clas);
-            startActivity(voltar);
-        } else
-            Toast.makeText(context, "Erro ao cadastrar", Toast.LENGTH_SHORT).show();
     }
 }

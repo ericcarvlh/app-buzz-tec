@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.buzztec.UpdateDelete.ConsultorActivityUD;
+import com.example.buzztec.dao.DaoBanco;
 import com.example.buzztec.dao.DaoConsultor;
 import com.example.buzztec.dto.DtoConsultor;
 
@@ -21,8 +23,9 @@ public class ConsultorActivity extends AppCompatActivity implements AdapterView.
     Button buttonCadastrar;
     EditText editTextNome, editTextEmail, editTextTelefone;
     String escolha;
-    DtoConsultor dtoConsultor = new DtoConsultor();
-    DaoConsultor daoConsultor = new DaoConsultor(this);
+    DtoConsultor dto = new DtoConsultor();
+    DaoConsultor dao = new DaoConsultor(this);
+    DaoBanco    daoB = new DaoBanco(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -45,22 +48,15 @@ public class ConsultorActivity extends AppCompatActivity implements AdapterView.
             @Override
             public void onClick(View v)
             {
-                dtoConsultor.setCargo(escolha);
-                dtoConsultor.setNome(editTextNome.getText().toString());
-                dtoConsultor.setTelefone(editTextTelefone.getText().toString());
-                dtoConsultor.setEmail(editTextEmail.getText().toString());
+                dto.setCargo(escolha);
+                dto.setNome(editTextNome.getText().toString());
+                dto.setTelefone(editTextTelefone.getText().toString());
+                dto.setEmail(editTextEmail.getText().toString());
 
                 try
                 {
-                    long addConsultor = daoConsultor.CadastrarConsultor(dtoConsultor);
-                    if(addConsultor > 0)
-                    {
-                        Toast.makeText(ConsultorActivity.this, "Sucesso", Toast.LENGTH_SHORT).show();
-                        Intent voltar = new Intent(ConsultorActivity.this, MenuActivity.class);
-                        startActivity(voltar);
-                    }
-                    else
-                        Toast.makeText(ConsultorActivity.this, "Erro ao cadastrar", Toast.LENGTH_SHORT).show();
+                    long Query = dao.CadastrarConsultor(dto);
+                    daoB.RealizaComando(Query, ConsultorActivity.this, MenuActivity.class);
                 }
                 catch (Exception ex)
                 {
@@ -85,10 +81,4 @@ public class ConsultorActivity extends AppCompatActivity implements AdapterView.
     {
 
     }
-//    private void ColetadeDados()
-//    {
-//        dtoConsultor.setNome(editTextNome.getText().toString());
-//        dtoConsultor.setTelefone(editTextTelefone.getText().toString());
-//        dtoConsultor.setEmail(editTextEmail.getText().toString());
-//    }
 }
