@@ -6,69 +6,167 @@
     android:layout_height="match_parent"
     tools:context=".UpdateDelete.AtividadeActivityUD">
 
-    <EditText
-        android:id="@+id/editTextDataInicio_atividade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:ems="10"
-        android:inputType="date"
-        android:hint="@string/inicio_atividade"
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/zero_um"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextDataTermino_atividade"
+    <TextView
+        android:id="@+id/textViewAtividade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="date"
-        android:hint="@string/termino_atividade"
+        android:layout_marginTop="30dp"
+        android:text="@string/atividade_detalhes_txt"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDataInicio_atividade" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextNmCliente_atividade"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutDataInicio"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/cliente_atividade"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="5dp"
+        android:hint="Data de início"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#4BB4FF"
+        app:endIconMode="clear_text"
+        app:helperText="Obrigatório*"
+        app:helperTextTextColor="#FF0000"
+        app:hintTextColor="#494949"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutDataTermino"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNmConsultor_atividade" />
+        app:layout_constraintTop_toTopOf="@+id/textViewAtividade">
 
-    <EditText
-        android:id="@+id/editTextNmConsultor_atividade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/consultor_atividade"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDataTermino_atividade" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextDataInicio_atividade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/editTextDesc_atividade"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutDataTermino"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:hint="@string/atividade_atividade"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="5dp"
+        android:hint="Data de termino"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#4BB4FF"
+        app:endIconMode="clear_text"
+        app:helperText="Obrigatório*"
+        app:helperTextTextColor="#FF0000"
+        app:hintTextColor="#494949"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutConsultor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNmCliente_atividade" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutDataInicio">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextDataTermino_atividade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutConsultor"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="5dp"
+        android:hint="Consultor"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#4BB4FF"
+        app:endIconMode="clear_text"
+        app:helperText="Obrigatório*"
+        app:helperTextTextColor="#FF0000"
+        app:hintTextColor="#494949"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutCliente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutDataTermino">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextNmConsultor_atividade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutCliente"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="5dp"
+        android:hint="Cliente"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#4BB4FF"
+        app:endIconMode="clear_text"
+        app:helperText="Obrigatório*"
+        app:helperTextTextColor="#FF0000"
+        app:hintTextColor="#494949"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutAtividade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutConsultor">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextNmCliente_atividade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutAtividade"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="34dp"
+        android:hint="Descrição da atividade"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#4BB4FF"
+        app:endIconMode="clear_text"
+        app:helperText="Obrigatório*"
+        app:helperTextTextColor="#FF0000"
+        app:hintTextColor="#494949"
+        app:layout_constraintBottom_toTopOf="@+id/consultor_detalhes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCliente">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextDesc_atividade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <include
         android:id="@+id/consultor_detalhes"
@@ -79,6 +177,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutAtividade" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

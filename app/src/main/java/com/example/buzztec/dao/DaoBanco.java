@@ -37,7 +37,7 @@ public class DaoBanco extends SQLiteOpenHelper
                 "Id INTEGER primary key," +
                 "Data_agenda DATE not null," +
                 "Nm_cliente VARCHAR(60) not null," +
-                "Local_agenda VARCHAR(100) not null," +
+                "Local_agenda VARCHAR(255) not null," +
                 "Nm_consultor VARCHAR(60) not null," +
                 "Desc_agenda VARCHAR(255) not null)";
         db_buzztec.execSQL(strquery);

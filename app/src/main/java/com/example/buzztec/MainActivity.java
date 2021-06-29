@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.setTitle("Login");
-
         buttonEntrar    = findViewById(R.id.buttonEntrar_login);
 
         editTextSenha   = findViewById(R.id.editTextSenha_login);
@@ -43,6 +41,7 @@ public class MainActivity extends AppCompatActivity
                     if(Query > 0 )
                     {
                             Intent prox = new Intent(MainActivity.this, MenuActivity.class);
+                            prox.putExtra("name", editTextUsuario.getText().toString());
                             Toast.makeText(MainActivity.this, "sucesso", Toast.LENGTH_SHORT).show();
                             startActivity(prox);
                     }

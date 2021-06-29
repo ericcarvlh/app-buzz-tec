@@ -1,40 +1,70 @@
 <resources>
     <string name="app_name">Buzz Tec</string>
 
-    <!--inicio utilizadas em telas de cadastro-->
+    <!--inicio utilizados na tela de LOGIN-->
+    <string name="entrar_login">Entrar</string>
+    <string name="usuario_login">Usuário</string>
+    <string name="senha_login">Senha</string>
+    <!--fim utilizados na tela de LOGIN-->
+
+
+    <!--inicio utilizados na tela de MENU-->
+    <string name="consultor_menu">CONSULTOR</string>
+    <string name="cliente_menu">CLIENTE</string>
+    <string name="atividade_menu">ATIVIDADE</string>
+    <string name="consulta_menu">CONSULTA</string>
+    <string name="agenda_menu">AGENDA</string>
+    <string name="servico_menu">SERVIÇO</string>
+    <string name="sobre_menu">SOBRE</string>
+    <string name="localizacao_menu">LOCALIZAÇÃO</string>
+    <!--MENU-->
+
+
+    <!--inicio utilizados na tela de MENU-->
+    <string name="consultor_detalhes_txt">CONSULTOR/DETALHES</string>
+    <string name="bemvindo_txtview">Bem vindo,</string>
+    <string name="cliente_detalhes_txt">CLIENTE/DETALHES</string>
+    <string name="atividade_detalhes_txt">ATIVIDADE/DETALHES</string>
+    <string name="consulta_detalhes_txt">CONSULTA/DETALHES</string>
+    <string name="agenda_detalhes_txt">AGENDA/DETALHES</string>
+    <string name="servico_detalhes_txt">SERVIÇO/DETALHES</string>
+    <!--MENU-->
+
+
+    <!--inicio utilizado nas telas de NAVEGAÇÃO-->
+    <string name="cadastrar_menus">Cadastrar</string>
+    <!--NAVEGAÇÃO-->
+
+
+    <!--inicio utilizadas em telas de CADASTRO-->
     <string name="nome">Nome</string>
     <string name="telefone">Telefone</string>
     <string name="email">E-mail</string>
     <string name="cadastro">Cadastrar</string>
     <string name="codigo">Código</string>
-    <!-- fim telas de cadastro-->
+    <!--CADASTRO-->
 
-    <!--inicio utilizados na tela de login-->
-    <string name="entrar_login">Entrar</string>
-    <string name="usuario_login">Usuário</string>
-    <string name="senha_login">Senha</string>
-    <!--fim utilizados na tela de login-->
 
-    <!--inicio utilizados na tela de atividade-->
+    <!--inicio utilizados na tela de ATIVIDADE-->
     <string name="cliente_atividade">Cliente</string>
     <string name="consultor_atividade">Consultor</string>
     <string name="inicio_atividade">Data inicio</string>
     <string name="termino_atividade">Data termino</string>
     <string name="atividade_atividade">Atividade</string>
-    <!--fim utilizados na tela de atividade-->
+    <!--ATIVIDADE-->
 
-    <!--inicio utilizados na tela de servico-->
+    <!--inicio utilizados na tela de SERVIÇO-->
     <string name="tipo_servico">Tipo</string>
     <string name="nome_servico">Nome servico</string>
     <string name="desc_servico">Descrição</string>
-    <!--fim utilizados na tela de servico-->
+    <!--SERVIÇO-->
 
-    <!--inicio utilizados na tela de agenda-->
+    <!--inicio utilizados na tela de AGENDA-->
     <string name="data_agenda">Data</string>
     <string name="local_agenda">Local</string>
-    <!--fim utilizados na tela de agenda-->
+    <!--AGENDA-->
 
-    <!--inicio utilizados no componente spinnerCargo-->
+    <!--inicio utilizados no componente SPINNER_CARGO-->
     <string-array name="spinner_cargo">
         <item>Banco de dados</item>
         <item>Analista mobile</item>
@@ -42,19 +72,19 @@
         <item>Dev. Back-end</item>
         <item>Dev. Front-end</item>
     </string-array>
-    <!--fim utilizados no componente spinnerCargo-->
+    <!--SPINNER_CARGO-->
 
-    <!--inicio utilizados no componente toolbar-->
+    <!--inicio utilizados no componente TOOLBAR-->
     <string name="title_activity_localizacao">Localização</string>
-    <!--fim utilizados no componente toolbar-->
+    <!--TOOLBAR-->
 
-    <!--inicio utilizados na tela sobre-->
+    <!--inicio utilizados na tela SOBRE-->
     <string name="versao_sobre">Versão 1.0</string>
     <string name="creditos_sobre">Desenvolvido por Buzz Tecnolgoia</string>
     <string name="creditos2_sobre">Powered By Buzz Tecnologia</string>
-    <!--fim utilizados na tela sobre-->
+    <!--SOBRE-->
 
-    <!--inicio utilizados no componente spinnerConsulta-->
+    <!--inicio utilizados no componente SPINNER_CONSULTA-->
     <string-array name="spinner_consulta">
         <item>Consulta</item>
         <item>Agenda</item>
@@ -64,6 +94,6 @@
         <!--<item>Login</item>-->
         <item>Serviço</item>
     </string-array>
-    <!--fim utilizados no componente spinnerConsulta-->
+    <!--SPINNER_CONSULTA-->
 
 </resources>

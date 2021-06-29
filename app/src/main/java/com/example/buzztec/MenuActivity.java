@@ -5,21 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class MenuActivity extends AppCompatActivity
 {
-    ImageButton buttonCliente, buttonServico, buttonConsulta,
+    Button buttonCliente, buttonServico, buttonConsulta,
     buttonConsultor, buttonAgenda, buttonAtividade, buttonSobre,
     buttonLocalizacao;
+    String nome  = "";
+    TextView textviewNome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
-        this.setTitle("Menu");
 
         buttonCliente     = findViewById(R.id.buttonCliente_menu);
         buttonServico     = findViewById(R.id.buttonServico_menu);
@@ -29,6 +31,15 @@ public class MenuActivity extends AppCompatActivity
         buttonAtividade   = findViewById(R.id.buttonAtividade_menu);
         buttonSobre       = findViewById(R.id.buttonSobre_menu);
         buttonLocalizacao = findViewById(R.id.buttonLocalizacao_menu);
+
+        textviewNome     = findViewById(R.id.textviewNome);
+
+        Intent menu = getIntent();
+        Bundle Nm = menu.getExtras();
+        nome      = Nm.getString("name");
+
+        if(!nome.equals(""))
+            textviewNome.setText((nome));
 
         buttonCliente.setOnClickListener(new View.OnClickListener()
         {

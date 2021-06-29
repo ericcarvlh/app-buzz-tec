@@ -3,7 +3,10 @@
     <style name="Theme.BuzzTec" parent="Theme.MaterialComponents.Light.Bridge">
         <!-- Primary brand color. -->
         <!--toolbar principal-->
-        <item name="colorPrimary">#43AEFF</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="colorPrimary">#FFFFFF</item>
         <!--barra de notificacao-->
         <item name="colorPrimaryVariant">#000000</item>
         <item name="colorOnPrimary">#4A4A4A</item>
