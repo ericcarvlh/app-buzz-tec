@@ -17,6 +17,7 @@ import com.example.buzztec.MenuActivity;
 import com.example.buzztec.R;
 import com.example.buzztec.dao.DaoBanco;
 import com.example.buzztec.dao.DaoServico;
+import com.example.buzztec.dto.DtoBanco;
 import com.example.buzztec.dto.DtoServico;
 
 public class ServicoActivityUD extends AppCompatActivity
@@ -27,14 +28,13 @@ public class ServicoActivityUD extends AppCompatActivity
     DaoServico dao = new DaoServico(this);
     DtoServico dto = new DtoServico();
     DaoBanco  daoB = new DaoBanco(this);
+    DtoBanco  dtoB = new DtoBanco();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_servico_ud);
-
-        this.setTitle("Servico");
 
         editTextDesc    = findViewById(R.id.editTextDesc_servico);
         editTextTipo    = findViewById(R.id.editTextTipo_servico);
@@ -62,7 +62,7 @@ public class ServicoActivityUD extends AppCompatActivity
                 try
                 {
                     long Query = dao.Alterar(dto);
-                    daoB.RealizaComando(Query,ServicoActivityUD.this, ConsultaActivity.class);
+                    dtoB.RealizaComando(Query,ServicoActivityUD.this, ConsultaActivity.class);
                 }
                 catch (Exception ex)
                 {

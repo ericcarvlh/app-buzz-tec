@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.buzztec.dao.DaoBanco;
 import com.example.buzztec.dao.DaoServico;
+import com.example.buzztec.dto.DtoBanco;
 import com.example.buzztec.dto.DtoServico;
 
 public class ServicoActivity extends AppCompatActivity
@@ -19,15 +20,13 @@ public class ServicoActivity extends AppCompatActivity
     EditText editTextTipo, editTextNomeS, editTextDesc;
     DtoServico dto = new DtoServico();
     DaoServico dao = new DaoServico(this);
-    DaoBanco  daoB = new DaoBanco(this);
+    DtoBanco   dtoB = new DtoBanco();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_servico);
-
-        this.setTitle("Servico");
 
         buttonCadastrar = findViewById(R.id.buttonCadastrarAtividade_servico);
 
@@ -47,7 +46,7 @@ public class ServicoActivity extends AppCompatActivity
                 try
                 {
                     long Query = dao.CadastrarServico(dto);
-                    daoB.RealizaComando(Query, ServicoActivity.this, MenuActivity.class);
+                    dtoB.RealizaComando(Query, ServicoActivity.this, MenuActivity.class);
                 }
                 catch (Exception ex)
                 {

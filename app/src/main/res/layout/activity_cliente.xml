@@ -65,19 +65,22 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="5dp"
-        android:hint="Nome"
+        android:hint="@string/nome"
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeColor="#4BB4FF"
         app:endIconMode="clear_text"
         app:helperText="Obrigatório*"
         app:helperTextTextColor="#FF0000"
+        app:counterEnabled="true"
         app:hintTextColor="#494949"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayoutTelefone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCodigo">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCodigo"
+        app:counterMaxLength="60">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:maxLength="61"
             android:id="@+id/editTextNome_cliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -93,21 +96,24 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="5dp"
-        android:hint="Número de Telefone"
+        android:hint="@string/telefone_detalhes_txt"
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeColor="#4BB4FF"
         app:endIconMode="clear_text"
         app:helperText="Obrigatório*"
         app:helperTextTextColor="#FF0000"
+        app:counterEnabled="true"
         app:hintTextColor="#494949"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayoutEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNome"
         app:prefixText="+11"
-        app:prefixTextColor="#195091">
+        app:prefixTextColor="#195091"
+        app:counterMaxLength="10">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:maxLength="11"
             android:id="@+id/editTextTelefone_cliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -123,19 +129,19 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="20dp"
-        android:hint="E-mail"
+        android:hint="@string/email"
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeColor="#4BB4FF"
         app:endIconMode="clear_text"
-        app:helperText="Obrigatório*"
-        app:helperTextTextColor="#FF0000"
-        app:hintTextColor="#494949"
+        app:counterEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/buttonCadastrarConsultor_cliente"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutTelefone">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutTelefone"
+        app:counterMaxLength="60">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:maxLength="61"
             android:id="@+id/editTextEmail_cliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

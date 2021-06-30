@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.buzztec.dao.DaoAgenda;
 import com.example.buzztec.dao.DaoBanco;
 import com.example.buzztec.dto.DtoAgenda;
+import com.example.buzztec.dto.DtoBanco;
 
 
 public class AgendaActivity extends AppCompatActivity
@@ -23,15 +24,13 @@ public class AgendaActivity extends AppCompatActivity
     editTextConsultor, editTextLocal, editTextDesc;
     DaoAgenda dao = new DaoAgenda(this);
     DtoAgenda dto = new DtoAgenda();
-    DaoBanco daoB = new DaoBanco(this);
+    DtoBanco dtoB = new DtoBanco();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agenda);
-
-        this.setTitle("Agenda");
 
         buttonCadastrar   = findViewById(R.id.buttonCadastrarAgenda_agenda);
 
@@ -40,6 +39,7 @@ public class AgendaActivity extends AppCompatActivity
         editTextData      = findViewById(R.id.editTextData_agenda);
         editTextLocal     = findViewById(R.id.editTextLocal_agenda);
         editTextDesc      = findViewById(R.id.editTextDesc_agenda);
+
 
         buttonCadastrar.setOnClickListener(new View.OnClickListener()
         {
@@ -54,7 +54,7 @@ public class AgendaActivity extends AppCompatActivity
                 try
                 {
                     long Query = dao.CadastrarAgenda(dto);
-                    daoB.RealizaComando(Query, AgendaActivity.this, MenuActivity.class);
+                    dtoB.RealizaComando(Query, AgendaActivity.this, MenuActivity.class);
                 }
                 catch (Exception ex)
                 {

@@ -7,10 +7,7 @@ public class DtoConsultor
 
     public String toString()
     {
-        //Locale ptBr = new Locale("pt","BR");
-        //Date format = new SimpleDateFormat("dd/MM/yyyy").parse(dataInicio);
-
-        return nome +" - "+ telefone +" - "+ cargo;
+        return nome +" | "+ telefone +" | "+ cargo;
     }
 
     public String getCargo()

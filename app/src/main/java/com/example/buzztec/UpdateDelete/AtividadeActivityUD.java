@@ -17,6 +17,7 @@ import com.example.buzztec.R;
 import com.example.buzztec.dao.DaoAtividade;
 import com.example.buzztec.dao.DaoBanco;
 import com.example.buzztec.dto.DtoAtividade;
+import com.example.buzztec.dto.DtoBanco;
 
 public class AtividadeActivityUD extends AppCompatActivity
 {
@@ -27,6 +28,7 @@ public class AtividadeActivityUD extends AppCompatActivity
     DtoAtividade dto = new DtoAtividade();
     DaoAtividade dao = new DaoAtividade(this);
     DaoBanco    daoB = new DaoBanco(this);
+    DtoBanco    dtoB = new DtoBanco();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -66,7 +68,7 @@ public class AtividadeActivityUD extends AppCompatActivity
                 try
                 {
                     long Query = dao.Alterar(dto);
-                    daoB.RealizaComando(Query, AtividadeActivityUD.this, ConsultaActivity.class);
+                    dtoB.RealizaComando(Query, AtividadeActivityUD.this, ConsultaActivity.class);
                 }
                 catch (Exception ex)
                 {

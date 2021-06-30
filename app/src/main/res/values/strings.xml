@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Buzz Tec</string>
+    <string name="app_name">BuzzTec</string>
 
     <!--inicio utilizados na tela de LOGIN-->
     <string name="entrar_login">Entrar</string>
@@ -19,7 +19,6 @@
     <string name="localizacao_menu">LOCALIZAÇÃO</string>
     <!--MENU-->
 
-
     <!--inicio utilizados na tela de MENU-->
     <string name="consultor_detalhes_txt">CONSULTOR/DETALHES</string>
     <string name="bemvindo_txtview">Bem vindo,</string>
@@ -28,6 +27,9 @@
     <string name="consulta_detalhes_txt">CONSULTA/DETALHES</string>
     <string name="agenda_detalhes_txt">AGENDA/DETALHES</string>
     <string name="servico_detalhes_txt">SERVIÇO/DETALHES</string>
+    <string name="telefone_detalhes_txt">Número de Telefone</string>
+    <string name="nmservico_detalhes_txt">Nome do serviço</string>
+    <string name="descati_detalhes_txt">Descrição da atividade</string>
     <!--MENU-->
 
 
@@ -77,6 +79,10 @@
     <!--inicio utilizados no componente TOOLBAR-->
     <string name="title_activity_localizacao">Localização</string>
     <!--TOOLBAR-->
+
+    <!--inicio utilizados no MENU de navegação lateral-->
+    <string name="empresa_menu">Buzz Tecnologia</string>
+    <!--MENU-->
 
     <!--inicio utilizados na tela SOBRE-->
     <string name="versao_sobre">Versão 1.0</string>

@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="@string/servico_detalhes_txt"
+        android:text="@string/nmservico_detalhes_txt"
         android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -38,19 +38,22 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="5dp"
-        android:hint="Tipo"
+        android:hint="@string/tipo_servico"
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeColor="#4BB4FF"
         app:endIconMode="clear_text"
         app:helperText="Obrigatório*"
         app:helperTextTextColor="#FF0000"
         app:hintTextColor="#494949"
+        app:counterEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayoutNomeServico"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewServico">
+        app:layout_constraintTop_toTopOf="@+id/textViewServico"
+        app:counterMaxLength="60">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:maxLength="61"
             android:id="@+id/editTextTipo_servico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,19 +69,22 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="5dp"
-        android:hint="Nome do Serviço"
+        android:hint="@string/nmservico_detalhes_txt"
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeColor="#4BB4FF"
         app:endIconMode="clear_text"
         app:helperText="Obrigatório*"
+        app:counterEnabled="true"
         app:helperTextTextColor="#FF0000"
         app:hintTextColor="#494949"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayoutDescricao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutTipo">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutTipo"
+        app:counterMaxLength="60">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:maxLength="61"
             android:id="@+id/editTextNmServico_servico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -94,19 +100,20 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="49dp"
-        android:hint="Descrição"
+        android:hint="@string/desc_servico"
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeColor="#4BB4FF"
+        app:counterEnabled="true"
         app:endIconMode="clear_text"
-        app:helperText="Obrigatório*"
-        app:helperTextTextColor="#FF0000"
         app:hintTextColor="#494949"
         app:layout_constraintBottom_toTopOf="@+id/servico_detalhes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNomeServico">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNomeServico"
+        app:counterMaxLength="255">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:maxLength="256"
             android:id="@+id/editTextDesc_servico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

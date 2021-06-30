@@ -40,23 +40,26 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="5dp"
-        android:hint="Nome"
+        android:hint="@string/nome"
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeColor="#4BB4FF"
         app:endIconMode="clear_text"
         app:helperText="Obrigatório*"
         app:helperTextTextColor="#FF0000"
         app:hintTextColor="#494949"
+        app:counterEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayoutEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewConsulta">
+        app:layout_constraintTop_toTopOf="@+id/textViewConsulta"
+        app:counterMaxLength="60">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextNome_Consultor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:maxLength="61"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -68,23 +71,23 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="5dp"
-        android:hint="E-mail"
+        android:hint="@string/email"
         app:boxBackgroundColor="#FFFFFF"
+        app:counterEnabled="true"
         app:boxStrokeColor="#4BB4FF"
         app:endIconMode="clear_text"
-        app:helperText="Obrigatório*"
-        app:helperTextTextColor="#FF0000"
-        app:hintTextColor="#494949"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayoutContato"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNome">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNome"
+        app:counterMaxLength="60">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextEmail_Consultor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:maxLength="61"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -96,25 +99,28 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="5dp"
-        android:hint="Número de Telefone"
+        android:hint="@string/telefone_detalhes_txt"
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeColor="#4BB4FF"
         app:endIconMode="clear_text"
         app:helperText="Obrigatório*"
         app:helperTextTextColor="#FF0000"
+        app:counterEnabled="true"
         app:hintTextColor="#494949"
         app:layout_constraintBottom_toTopOf="@+id/spinnerCargo_Consultor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEmail"
         app:prefixText="+11"
-        app:prefixTextColor="#195091">
+        app:prefixTextColor="#195091"
+        app:counterMaxLength="10">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextTelefone_Consultor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number" />
+            android:inputType="number"
+            android:maxLength="11"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Spinner

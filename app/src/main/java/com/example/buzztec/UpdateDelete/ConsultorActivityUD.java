@@ -18,6 +18,7 @@ import com.example.buzztec.MenuActivity;
 import com.example.buzztec.R;
 import com.example.buzztec.dao.DaoBanco;
 import com.example.buzztec.dao.DaoConsultor;
+import com.example.buzztec.dto.DtoBanco;
 import com.example.buzztec.dto.DtoConsultor;
 
 public class ConsultorActivityUD extends AppCompatActivity implements AdapterView.OnItemSelectedListener
@@ -30,14 +31,13 @@ public class ConsultorActivityUD extends AppCompatActivity implements AdapterVie
     DtoConsultor dto = new DtoConsultor();
     DaoConsultor dao = new DaoConsultor(this);
     DaoBanco    daoB = new DaoBanco(this);
+    DtoBanco    dtoB = new DtoBanco();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultor_ud);
-
-        this.setTitle("Consultor");
 
         buttonAlterar = findViewById(R.id.buttonAlterar_UD);
         buttonDeletar = findViewById(R.id.buttonDeletar_UD);
@@ -69,7 +69,7 @@ public class ConsultorActivityUD extends AppCompatActivity implements AdapterVie
                 try
                 {
                     long Query = dao.Alterar(dto);
-                    daoB.RealizaComando(Query,ConsultorActivityUD.this, ConsultaActivity.class);
+                    dtoB.RealizaComando(Query,ConsultorActivityUD.this, ConsultaActivity.class);
                 }
                 catch (Exception ex)
                 {

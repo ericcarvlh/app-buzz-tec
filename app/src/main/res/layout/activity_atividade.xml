@@ -37,7 +37,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="5dp"
-        android:hint="Data de início"
+        android:hint="@string/inicio_atividade"
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeColor="#4BB4FF"
         app:endIconMode="clear_text"
@@ -53,7 +53,7 @@
             android:id="@+id/editTextDataInicio_atividade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"/>
+            android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -65,7 +65,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="5dp"
-        android:hint="Data de termino"
+        android:hint="@string/termino_atividade"
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeColor="#4BB4FF"
         app:endIconMode="clear_text"
@@ -81,7 +81,7 @@
             android:id="@+id/editTextDataTermino_atividade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"/>
+            android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -93,19 +93,22 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="5dp"
-        android:hint="Consultor"
+        android:hint="@string/consultor_atividade"
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeColor="#4BB4FF"
         app:endIconMode="clear_text"
         app:helperText="Obrigatório*"
         app:helperTextTextColor="#FF0000"
+        app:counterEnabled="true"
         app:hintTextColor="#494949"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayoutCliente"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutDataTermino">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutDataTermino"
+        app:counterMaxLength="60">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:maxLength="61"
             android:id="@+id/editTextNmConsultor_atividade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -121,19 +124,22 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="5dp"
-        android:hint="Cliente"
+        android:hint="@string/cliente_atividade"
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeColor="#4BB4FF"
         app:endIconMode="clear_text"
         app:helperText="Obrigatório*"
         app:helperTextTextColor="#FF0000"
+        app:counterEnabled="true"
         app:hintTextColor="#494949"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayoutAtividade"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutConsultor">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutConsultor"
+        app:counterMaxLength="60">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:maxLength="61"
             android:id="@+id/editTextNmCliente_atividade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -148,19 +154,20 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
-        android:hint="Descrição da atividade"
+        android:hint="@string/descati_detalhes_txt"
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeColor="#4BB4FF"
         app:endIconMode="clear_text"
-        app:helperText="Obrigatório*"
-        app:helperTextTextColor="#FF0000"
+        app:counterEnabled="true"
         app:hintTextColor="#494949"
         app:layout_constraintBottom_toTopOf="@+id/buttonCadastrarAtividade_atividade"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCliente">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCliente"
+        app:counterMaxLength="255">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:maxLength="256"
             android:id="@+id/editTextDesc_atividade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

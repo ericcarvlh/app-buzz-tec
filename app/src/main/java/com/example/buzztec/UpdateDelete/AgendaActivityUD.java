@@ -2,8 +2,6 @@ package com.example.buzztec.UpdateDelete;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -11,11 +9,11 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.buzztec.ConsultaActivity;
-import com.example.buzztec.MenuActivity;
 import com.example.buzztec.R;
 import com.example.buzztec.dao.DaoAgenda;
 import com.example.buzztec.dao.DaoBanco;
 import com.example.buzztec.dto.DtoAgenda;
+import com.example.buzztec.dto.DtoBanco;
 
 public class AgendaActivityUD extends AppCompatActivity
 {
@@ -24,6 +22,7 @@ public class AgendaActivityUD extends AppCompatActivity
     EditText editTextData, editTextCliente,
     editTextConsultor, editTextLocal, editTextDesc;
     DaoAgenda dao = new DaoAgenda(this);
+    DtoBanco dtoB = new DtoBanco();
     DaoBanco daoB = new DaoBanco(this);
     DtoAgenda dto = new DtoAgenda();
 
@@ -65,7 +64,7 @@ public class AgendaActivityUD extends AppCompatActivity
                 try
                 {
                     long strQuery = dao.Alterar(dto);
-                    daoB.RealizaComando(strQuery, AgendaActivityUD.this, ConsultaActivity.class);
+                    dtoB.RealizaComando(strQuery, AgendaActivityUD.this, ConsultaActivity.class);
                 }
                 catch (Exception ex)
                 {

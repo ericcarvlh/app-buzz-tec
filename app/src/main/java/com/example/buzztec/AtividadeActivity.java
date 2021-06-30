@@ -13,6 +13,7 @@ import com.example.buzztec.UpdateDelete.AgendaActivityUD;
 import com.example.buzztec.dao.DaoAtividade;
 import com.example.buzztec.dao.DaoBanco;
 import com.example.buzztec.dto.DtoAtividade;
+import com.example.buzztec.dto.DtoBanco;
 
 public class AtividadeActivity extends AppCompatActivity
 {
@@ -21,15 +22,13 @@ public class AtividadeActivity extends AppCompatActivity
     editTextConsultor, editTextCliente, editTextDesc;
     DtoAtividade dto = new DtoAtividade();
     DaoAtividade dao = new DaoAtividade(this);
-    DaoBanco    daoB = new DaoBanco(this);
+    DtoBanco dtoB = new DtoBanco();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_atividade);
-
-        this.setTitle("Atividade");
 
         buttonCadastrar   = findViewById(R.id.buttonCadastrarAtividade_atividade);
 
@@ -53,7 +52,7 @@ public class AtividadeActivity extends AppCompatActivity
                 try
                 {
                     long Query = dao.CadastrarAtividade(dto);
-                    daoB.RealizaComando(Query, AtividadeActivity.this, MenuActivity.class);
+                    dtoB.RealizaComando(Query, AtividadeActivity.this, MenuActivity.class);
 
                 }
                 catch (Exception ex)

@@ -43,11 +43,11 @@
 
     <ListView
         android:id="@+id/listviewInfo"
-        android:layout_width="375dp"
-        android:layout_height="532dp"
-        android:background="#ACACAC"
+        android:layout_width="325dp"
+        android:layout_height="500dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
+        android:background="#ACACAC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

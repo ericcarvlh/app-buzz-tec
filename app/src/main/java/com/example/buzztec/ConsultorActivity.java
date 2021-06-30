@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.buzztec.UpdateDelete.ConsultorActivityUD;
 import com.example.buzztec.dao.DaoBanco;
 import com.example.buzztec.dao.DaoConsultor;
+import com.example.buzztec.dto.DtoBanco;
 import com.example.buzztec.dto.DtoConsultor;
 
 public class ConsultorActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener
@@ -25,7 +26,7 @@ public class ConsultorActivity extends AppCompatActivity implements AdapterView.
     String escolha;
     DtoConsultor dto = new DtoConsultor();
     DaoConsultor dao = new DaoConsultor(this);
-    DaoBanco    daoB = new DaoBanco(this);
+    DtoBanco    dtoB = new DtoBanco();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -56,7 +57,7 @@ public class ConsultorActivity extends AppCompatActivity implements AdapterView.
                 try
                 {
                     long Query = dao.CadastrarConsultor(dto);
-                    daoB.RealizaComando(Query, ConsultorActivity.this, MenuActivity.class);
+                    dtoB.RealizaComando(Query, ConsultorActivity.this, MenuActivity.class);
                 }
                 catch (Exception ex)
                 {

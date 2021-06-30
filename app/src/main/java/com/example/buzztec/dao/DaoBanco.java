@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 
+import com.example.buzztec.R;
+
 public class DaoBanco extends SQLiteOpenHelper
 {
     public DaoBanco(@Nullable Context context)
@@ -39,7 +41,7 @@ public class DaoBanco extends SQLiteOpenHelper
                 "Nm_cliente VARCHAR(60) not null," +
                 "Local_agenda VARCHAR(255) not null," +
                 "Nm_consultor VARCHAR(60) not null," +
-                "Desc_agenda VARCHAR(255) not null)";
+                "Desc_agenda VARCHAR(255))";
         db_buzztec.execSQL(strquery);
         strquery = "Create Table " +TABELA_ATIVIDADE+ "(" +
                 "Id INTEGER primary key," +
@@ -47,33 +49,33 @@ public class DaoBanco extends SQLiteOpenHelper
                 "Data_termino DATE not null," +
                 "Nm_consultor VARCHAR(60) not null," +
                 "Nm_cliente VARCHAR(60) not null," +
-                "Desc_atividade VARCHAR(255) not null)";
+                "Desc_atividade VARCHAR(255))";
         db_buzztec.execSQL(strquery);
         strquery = "Create Table " +TABELA_CLIENTE+ "(" +
                 "Id INTEGER primary key," +
                 "Cd_cliente MEDIUMINT not null," +
                 "Nm_cliente VARCHAR(60) not null," +
                 "Tell_cliente VARCHAR(10) not null," +
-                "Email_cliente VARCHAR(60) not null)";
+                "Email_cliente VARCHAR(60))";
         db_buzztec.execSQL(strquery);
         strquery = "Create table " +TABELA_CONSULTOR+ "(" +
                 "Id INTEGER primary key," +
                 "Nm_consultor VARCHAR(60) not null," +
                 "Tell_consultor VARCHAR(10) not null," +
-                "Email_consultor VARCHAR(60) not null, " +
+                "Email_consultor VARCHAR(60), " +
                 "Cargo_consultor VARCHAR(30) not null)";
         db_buzztec.execSQL(strquery);
         strquery = "Create Table " +TABELA_SERVICO+ "(" +
                 "Id INTEGER primary key," +
                 "Tp_servico VARCHAR(60) not null," +
                 "Nm_servico VARCHAR(60) not null," +
-                "Desc_servico VARCHAR(255) not null)";
+                "Desc_servico VARCHAR(255))";
         db_buzztec.execSQL(strquery);
         strquery = "INSERT INTO "+TABELA_LOGIN+" VALUES" +
-                "(1, 'eriquin', '1234567')," +
-                "(2, 'leozin', '12345678')," +
+                "(1, 'eric', '1234567')," +
+                "(2, 'leonardo', '12345678')," +
                 "(3, 'amanda', '12345')," +
-                "(4, 'fabi', '123456')," +
+                "(4, 'fabiana', '123456')," +
                 "(5, 'cicerov', '1234')";
         db_buzztec.execSQL(strquery);
     }
@@ -95,23 +97,12 @@ public class DaoBanco extends SQLiteOpenHelper
         {return 0;}
     }
 
-    public void RealizaComando(long Query, Context context, Class clas)
-    {
-        if (Query > 0) {
-            Toast.makeText(context, "Sucesso", Toast.LENGTH_SHORT).show();
-            Intent voltar = new Intent(context, clas);
-            ContextCompat.startActivity(context, voltar, null);
-
-        } else
-            Toast.makeText(context, "Erro ao cadastrar", Toast.LENGTH_SHORT).show();
-    }
-
     public void AlertaExclusao(Context context, Class clas, long Query) {
         String sExcMsg = "Tem certeza que deseja excluir?";
         String sExcTt  = "Deseja Prosseguir?";
         AlertDialog.Builder Exc = new AlertDialog.Builder(context);
         Exc.setMessage(sExcMsg);
-        Exc.setIcon(android.R.drawable.stat_notify_error);
+        Exc.setIcon(R.drawable.alerta_icon);
         Exc.setTitle(sExcTt);
         Exc.setPositiveButton("Sim", new DialogInterface.OnClickListener()
         {
@@ -137,5 +128,4 @@ public class DaoBanco extends SQLiteOpenHelper
         Exc.setNegativeButton("Não", null);
         Exc.show();
     }
-
 }

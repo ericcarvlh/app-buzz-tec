@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.buzztec.dao.DaoBanco;
 import com.example.buzztec.dao.DaoCliente;
+import com.example.buzztec.dto.DtoBanco;
 import com.example.buzztec.dto.DtoCliente;
 
 public class ClienteActivity extends AppCompatActivity
@@ -19,15 +20,13 @@ public class ClienteActivity extends AppCompatActivity
     EditText editTextNome, editTextEmail, editTextTelefone, editTextCodigo;
     DtoCliente dto = new DtoCliente();
     DaoCliente dao = new DaoCliente(this);
-    DaoBanco  daoB = new DaoBanco(this);
+    DtoBanco dtoB  = new DtoBanco();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cliente);
-
-        this.setTitle("Cliente");
 
         buttonCadastrar  = findViewById(R.id.buttonCadastrarConsultor_cliente);
 
@@ -49,7 +48,7 @@ public class ClienteActivity extends AppCompatActivity
                 try
                 {
                     long Query = dao.CadastrarCliente(dto);
-                    daoB.RealizaComando(Query, ClienteActivity.this, MenuActivity.class);
+                    dtoB.RealizaComando(Query, ClienteActivity.this, MenuActivity.class);
                 }
                 catch (Exception ex)
                 {

@@ -7,10 +7,7 @@ public class DtoServico
 
     public String toString()
     {
-        //Locale ptBr = new Locale("pt","BR");
-        //Date format = new SimpleDateFormat("dd/MM/yyyy").parse(dataInicio);
-
-        return nm_servico+" - "+ tp_servico;
+        return nm_servico+" | "+ tp_servico;
     }
 
     public String getDesc_servico() {

@@ -6,17 +6,16 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/buzz_icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BuzzTec">
-        <activity android:name=".UpdateDelete.AgendaActivityUD"></activity>
+        <activity android:name=".UpdateDelete.AgendaActivityUD" />
         <activity android:name=".UpdateDelete.AtividadeActivityUD" />
         <activity android:name=".UpdateDelete.ClienteActivityUD" />
         <activity android:name=".UpdateDelete.ConsultorActivityUD" />
         <activity android:name=".UpdateDelete.ServicoActivityUD" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />

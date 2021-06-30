@@ -15,6 +15,7 @@ import com.example.buzztec.MenuActivity;
 import com.example.buzztec.R;
 import com.example.buzztec.dao.DaoBanco;
 import com.example.buzztec.dao.DaoCliente;
+import com.example.buzztec.dto.DtoBanco;
 import com.example.buzztec.dto.DtoCliente;
 
 public class ClienteActivityUD extends AppCompatActivity
@@ -25,14 +26,13 @@ public class ClienteActivityUD extends AppCompatActivity
     DtoCliente dto = new DtoCliente();
     DaoCliente dao = new DaoCliente(this);
     DaoBanco  daoB = new DaoBanco(this);
+    DtoBanco  dtoB = new DtoBanco();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cliente_ud);
-
-        this.setTitle("Cliente");
 
         editTextEmail    = findViewById(R.id.editTextEmail_cliente);
         editTextNome     = findViewById(R.id.editTextNome_cliente);
@@ -63,7 +63,7 @@ public class ClienteActivityUD extends AppCompatActivity
                 try
                 {
                     long strQuery = dao.Alterar(dto);
-                    daoB.RealizaComando(strQuery, ClienteActivityUD.this, ConsultaActivity.class);
+                    dtoB.RealizaComando(strQuery, ClienteActivityUD.this, ConsultaActivity.class);
                 }
                 catch (Exception ex)
                 {
@@ -76,7 +76,8 @@ public class ClienteActivityUD extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-
+                long Query = dao.Excluir(Id);
+                daoB.AlertaExclusao(ClienteActivityUD.this, ConsultaActivity.class, Query);
             }
         });
     }

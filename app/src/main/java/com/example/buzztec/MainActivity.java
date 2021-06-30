@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity
                     if(Query > 0 )
                     {
                             Intent prox = new Intent(MainActivity.this, MenuActivity.class);
-                            prox.putExtra("name", editTextUsuario.getText().toString());
                             Toast.makeText(MainActivity.this, "sucesso", Toast.LENGTH_SHORT).show();
                             startActivity(prox);
                     }

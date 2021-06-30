@@ -37,7 +37,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="5dp"
-        android:hint="Data"
+        android:hint="@string/data_agenda"
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeColor="#4BB4FF"
         app:endIconMode="clear_text"
@@ -50,10 +50,11 @@
         app:layout_constraintTop_toTopOf="@+id/textViewAgenda">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:maxLength="11"
             android:id="@+id/editTextData_agenda"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"/>
+            android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -65,19 +66,22 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="5dp"
-        android:hint="Cliente"
+        android:hint="@string/cliente_atividade"
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeColor="#4BB4FF"
         app:endIconMode="clear_text"
         app:helperText="Obrigatório*"
         app:helperTextTextColor="#FF0000"
         app:hintTextColor="#494949"
+        app:counterEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayoutLocal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutData">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutData"
+        app:counterMaxLength="60">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:maxLength="61"
             android:id="@+id/editTextNmCliente_agenda"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -93,19 +97,22 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="5dp"
-        android:hint="Local"
+        android:hint="@string/local_agenda"
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeColor="#4BB4FF"
         app:endIconMode="clear_text"
         app:helperText="Obrigatório*"
         app:helperTextTextColor="#FF0000"
         app:hintTextColor="#494949"
+        app:counterEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayoutConsultor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCliente">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCliente"
+        app:counterMaxLength="255">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:maxLength="256"
             android:id="@+id/editTextLocal_agenda"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -121,19 +128,20 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="5dp"
-        android:hint="Consultor"
+        android:hint="@string/consultor_atividade"
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeColor="#4BB4FF"
         app:endIconMode="clear_text"
-        app:helperText="Obrigatório*"
-        app:helperTextTextColor="#FF0000"
         app:hintTextColor="#494949"
+        app:counterEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayoutDescricao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutLocal">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutLocal"
+        app:counterMaxLength="60">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:maxLength="61"
             android:id="@+id/editTextNmConsultor_agenda"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -148,20 +156,21 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
-        android:hint="Descrição"
+        android:hint="@string/desc_servico"
         app:boxBackgroundColor="#FFFFFF"
         app:boxStrokeColor="#4BB4FF"
         app:endIconMode="clear_text"
-        app:helperText="Obrigatório*"
-        app:helperTextTextColor="#FF0000"
         app:hintTextColor="#494949"
+        app:counterEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/buttonCadastrarAgenda_agenda"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutConsultor">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutConsultor"
+        app:counterMaxLength="255">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:maxLength="256"
             android:id="@+id/editTextDesc_agenda"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

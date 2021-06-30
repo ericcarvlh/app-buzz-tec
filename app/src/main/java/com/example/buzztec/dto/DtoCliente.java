@@ -7,10 +7,7 @@ public class DtoCliente
 
     public String toString()
     {
-        //Locale ptBr = new Locale("pt","BR");
-        //Date format = new SimpleDateFormat("dd/MM/yyyy").parse(dataInicio);
-
-        return Nome +" - "+ Cd_cliente +" - "+ Telefone;
+        return Nome +" | "+ Cd_cliente +" | "+ Telefone;
     }
 
     public int getId() {

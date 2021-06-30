@@ -11,7 +11,7 @@ public class DtoAgenda
 
     public String toString()
     {
-        return nm_cliente + " - " + nm_consultor + " - " + data_agenda;
+        return nm_cliente + " | " + nm_consultor + " | " + data_agenda;
     }
 
     public String getData_agenda() {

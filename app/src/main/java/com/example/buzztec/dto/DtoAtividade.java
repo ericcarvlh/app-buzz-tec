@@ -1,10 +1,6 @@
 package com.example.buzztec.dto;
 
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 public class DtoAtividade
 {
@@ -13,10 +9,7 @@ public class DtoAtividade
 
     public String toString()
     {
-        //Locale ptBr = new Locale("pt","BR");
-        //Date format = new SimpleDateFormat("dd/MM/yyyy").parse(dataInicio);
-
-        return nm_cliente +" - "+ nm_consultor +" - "+ dataInicio +" - "+ dataTermino;
+        return nm_cliente +" | "+ nm_consultor +" | "+ dataInicio +" | "+ dataTermino;
     }
 
     public String getDataInicio() {
